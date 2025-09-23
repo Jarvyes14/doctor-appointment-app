@@ -17,14 +17,17 @@
     <!-- Styles -->
     @livewireStyles
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased bg-gray-200">
 
     @include('layouts.includes.admin.sidebar')
     @include('layouts.includes.admin.navbar')
 
-    @stack('modals')
+    <div class="p-4 sm:ml-64">
+        <div class="mt-10">
+            {{$slot}}
+        </div>
+    </div>
 
-    @livewireScripts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>

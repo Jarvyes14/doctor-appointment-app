@@ -50,6 +50,93 @@ Si quieres comprobar que se realizaron:
 
 ---
 
+# Explicación de los cambios realizados
+
+Este documento explica **cómo se construyó el layout administrativo** con Laravel, Flowbite y Tailwind, paso a paso.
+
+---
+
+## 1. Creación del layout principal `admin.blade.php`
+
+Se generó un layout base donde se integran el **Navbar** y el **Sidebar**.  
+Este layout incluye:
+
+- Importación de **Tailwind CSS** y **Flowbite JS**.
+- Un `slot` que permite inyectar contenido dinámico desde otras vistas.
+- Fondo gris aplicado con `bg-gray-200` para mantener consistencia visual.
+- Inclusión de los archivos `navbar.blade.php` y `sidebar.blade.php` desde `layouts/includes/admin/`.
+
+```blade
+@include('layouts.includes.admin.sidebar')
+@include('layouts.includes.admin.navbar')
+
+<div class="p-4 sm:ml-64">
+    <div class="mt-10">
+        {{$slot}}
+    </div>
+</div>
+```
+
+---
+
+## 2. Creación del **Navbar** (`navbar.blade.php`)
+
+- Navbar fijo en la parte superior.
+- Se añadió un botón **hamburguesa** que permite abrir/cerrar el sidebar en dispositivos pequeños.
+- Se añadió un **menú de usuario con dropdown**, mostrando foto, nombre y correo.
+
+Ejemplo de despliegue de usuario:
+```blade
+<button type="button" class="flex text-sm bg-gray-800 rounded-full" data-dropdown-toggle="dropdown-user">
+    <img class="w-8 h-8 rounded-full" src="http://javierbarcelosantos.dev/pfp.jpg" alt="user photo">
+</button>
+```
+
+---
+
+## 3. Creación del **Sidebar** (`sidebar.blade.php`)
+
+- Sidebar lateral izquierdo fijo.
+- Cada enlace muestra:
+    - Ícono.
+    - Nombre del enlace.
+
+
+---
+
+## 4. Dashboard dinámico con `slot`
+
+Para mostrar contenido dinámico dentro del layout, se creó un componente llamado `x-admin-layout`.  
+En `dashboard.blade.php` se usa de la siguiente manera:
+
+```blade
+<x-admin-layout>
+    Hola desde admin
+</x-admin-layout>
+```
+
+De esta forma, el texto o vistas que se coloquen dentro del componente se renderizan dentro del `slot` en `admin.blade.php`.
+
+---
+
+## 5. Diseño visual consistente
+
+- Se aplicó `bg-gray-200` al `body` para dar un fondo neutro.
+- Uso de clases de **Tailwind CSS** para mantener responsividad y soporte de **modo oscuro**.
+- Se integraron estilos de Flowbite para el menú, sidebar y dropdowns.
+
+---
+
+## 6. Integración con Flowbite
+
+Finalmente, se agregó el script de Flowbite en el layout principal para que todos los componentes interactivos (como el menú de usuario y el sidebar) funcionen correctamente:
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+```
+
+---
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
