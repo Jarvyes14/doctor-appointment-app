@@ -7,7 +7,13 @@
             'active' => request()->routeIs('admin.dashboard'),
         ],
         [
-            'header' => 'Hospital'
+            'header' => 'Gestion'
+        ],
+        [
+            'name' => 'Roles',
+            'icon' => 'fa-solid fa-shield-halved',
+            'href' => route('admin.roles.index'),
+            'active' => request()->routeIs('admin.roles.*'),
         ],
         [
             'name' => 'Dashboard',
