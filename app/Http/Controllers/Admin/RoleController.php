@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Role;
 
 class RoleController extends Controller
 {
@@ -12,7 +13,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.roles.index');
     }
 
     /**
@@ -20,7 +21,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.roles.create');
     }
 
     /**
@@ -28,7 +29,14 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:roles,name',
+        ]);
+
+        Role::create($validated);
+
+        return redirect()->route('admin.roles.index')
+            ->with('success', 'Rol creado exitosamente');
     }
 
     /**
