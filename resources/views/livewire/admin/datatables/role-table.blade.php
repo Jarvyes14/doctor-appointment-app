@@ -25,9 +25,20 @@
             <tr>
                 <td class="px-4 py-2 border">{{ $role->id }}</td>
                 <td class="px-4 py-2 border">{{ $role->name }}</td>
-                <td class="px-4 py-2 border">
-                    <button class="text-blue-500 px-2 bg-gray-200 rounded">Editar</button>
-                    <button class="text-red-500 px-2 bg-gray-200 rounded">Eliminar</button>
+                <td class="px-4 py-2 border items-center">
+                    <x-wire-button href="{{route('admin.roles.edit', $role)}}" blue xs>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </x-wire-button>
+
+                    <form action="{{ route('admin.roles.destroy', $role) }}" method="POST" class="inline">
+                        @csrf
+                        @method('DELETE')
+                        <x-wire-button type='submite' red xs>
+                            <i class="fa-solid fa-trash"></i>
+                        </x-wire-button>
+                    </form>
+
+
                 </td>
                 <td class="px-4 py-2 border">{{ $role->created_at }}</td>
             </tr>
