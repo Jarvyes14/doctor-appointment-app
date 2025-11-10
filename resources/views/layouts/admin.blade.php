@@ -1,6 +1,7 @@
 @props([
     'title' => config('app.name', 'Laravel'),
-    'breadcrumbs' => []])
+    'breadcrumbs' => []
+    ])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -18,6 +19,9 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- WireUI -->
     <wireui:scripts />
 
@@ -29,12 +33,28 @@
     @include('layouts.includes.admin.sidebar')
     @include('layouts.includes.admin.navbar')
 
-    <div class="p-4 sm:ml-64">
-        <div class="mt-10">
-            {{$slot}}
-        </div>
-    </div>
+    <div class="p-4 sm:ml-64 mt-14">
+        {{-- añadiendo margen superior para evitar que la barra fija tape el contenido --}}
+        <div class="pb-4 flex items-start justify-between">
+            @include('layouts.includes.breadcrumb', ['breadcrumbs' => $breadcrumbs])
 
+            @isset($action)
+                <div class="flex-shrink-0">
+                    {{ $action }}
+                </div>
+            @endisset
+        </div>
+        {{$slot}}
+    </div>
+    @stack('modals')
+
+    @livewireScripts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    @if(@session('swal'))
+        <script>
+            Swal.fire(@json(session('swal')));
+        </script>
+    @endif
 </body>
 </html>

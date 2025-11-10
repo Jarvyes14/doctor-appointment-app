@@ -1,29 +1,36 @@
 <?php
 
-namespace App\Livewire\Admin\Datatables;
+namespace App\Livewire\Admin\DataTables;
 
-use Livewire\Component;
-use Livewire\WithPagination;
-use App\Models\Role; // Ajusta según tu modelo
+use Illuminate\View\View;
+use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Rappasoft\LaravelLivewireTables\Views\Column;
+use App\Models\Role;
 
-class RoleTable extends Component
+class RoleTable extends DataTableComponent
 {
-    use WithPagination;
+    protected $model = Role::class;
 
-    public $search = '';
-
-    public function updatingSearch()
+    public function configure(): void
     {
-        $this->resetPage();
+        $this->setPrimaryKey('id');
     }
 
-    public function render()
+    public function columns(): array
     {
-        $roles = Role::where('name', 'like', '%' . $this->search . '%')
-            ->paginate(10);
-
-        return view('livewire.admin.datatables.role-table', [
-            'roles' => $roles
-        ]);
+        return [
+            Column::make("Id", "id")
+                ->sortable(),
+            Column::make("Nombre", "name")
+                ->sortable()
+                ->searchable(),
+            Column::make("Fecha de Creación", "created_at")
+                ->sortable()
+                ->format(fn($value) => $value->format('d/m/Y H:i')),
+            Column::make("Acciones")
+                ->label(function ($row){
+                    return View('admin.roles.actions',['role'=>$row]);
+                }),
+        ];
     }
 }
