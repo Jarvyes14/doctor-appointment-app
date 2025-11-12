@@ -10,4 +10,6 @@ class Role extends Model
         'name',
         'guard_name',
     ];
+
+
 }

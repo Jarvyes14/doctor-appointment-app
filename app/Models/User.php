@@ -55,6 +55,19 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public static function create(array $array)
+    {
+        // 1. Llama al método 'create' original del modelo Eloquent para crear el usuario.
+        // Asegúrate de que $array contenga al menos 'name', 'email' y 'password'.
+        $user = parent::create($array);
+
+        // 2. Lógica personalizada: Asignar un rol por defecto.
+        // Nota: Asumo que el rol 'user' existe en la base de datos.
+        $user->assignRole('Paciente');
+
+        return $user;
+    }
+
     /**
      * Get the attributes that should be cast.
      *

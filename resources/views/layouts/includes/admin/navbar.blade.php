@@ -18,7 +18,7 @@
                     <span class="w-6 h-6 inline-flex justify-center items-center">
                         <i class="fa-solid fa-suitcase-medical me-3 pt-1 text-white"></i>
                     </span>
-                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Citas medicas</span>
+                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Citas médicas</span>
                 </a>
             </div>
             <div class="flex items-center">
