@@ -1,29 +1,101 @@
-<x-admin-layout title="Roles | Simify" :breadcrumbs="[
-[
-    'name' => 'Dashboard',
-    'href' => route('admin.dashboard'),
-],
-[
-    'name' => 'Roles',
-    'href' => route('admin.users.index'),
-],
-[
-    'name' => 'Nuevo',
-],
-]"
->
+<x-admin-layout title="Crear Usuario | Simify" :breadcrumbs="[
+    ['name' => 'Dashboard', 'href' => route('admin.dashboard')],
+    ['name' => 'Usuarios', 'href' => route('admin.users.index')],
+    ['name' => 'Nuevo Usuario'],
+]">
     <x-wire-card>
-        <form action="{{route('admin.usuarios.store')}}" method="POST">
+        <form action="{{ route('admin.users.store') }}" method="POST">
             @csrf
 
-            <x-wire-input label="Nombre" name="name" placeholder="Nombre del usuario" value="{{old('name')}}"></x-wire-input>
-            <x-wire-input label="Email" name="email" placeholder="Correo electronico" value="{{old('email')}}"></x-wire-input>
-            <x-wire-input label="Password" name="password" placeholder="Contraseña" value="{{old('password')}}"></x-wire-input>
-            <div class="flex justify-end mt-4">
-                <x-wire-button type="submit" blue>Guardar</x-wire-button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <x-wire-input
+                    label="Nombre"
+                    name="name"
+                    placeholder="Nombre completo"
+                    value="{{ old('name') }}"
+                    required
+                />
+
+                <x-wire-input
+                    label="Email"
+                    name="email"
+                    type="email"
+                    placeholder="correo@ejemplo.com"
+                    value="{{ old('email') }}"
+                    required
+                />
             </div>
 
+            {{-- NUEVO: Campos adicionales --}}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                <x-wire-input
+                    label="Número de Identificación"
+                    name="id_number"
+                    placeholder="12345678"
+                    value="{{ old('id_number') }}"
+                />
+
+                <x-wire-input
+                    label="Teléfono"
+                    name="phone"
+                    placeholder="+1234567890"
+                    value="{{ old('phone') }}"
+                />
+            </div>
+
+            {{-- NUEVO: Campo de dirección --}}
+            <div class="mt-4">
+                <x-wire-textarea
+                    label="Dirección"
+                    name="address"
+                    placeholder="Dirección completa"
+                    value="{{ old('address') }}"
+                    rows="3"
+                />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <x-wire-input
+                    label="Contraseña"
+                    name="password"
+                    type="password"
+                    placeholder="********"
+                    required
+                />
+
+                <x-wire-input
+                    label="Confirmar Contraseña"
+                    name="password_confirmation"
+                    type="password"
+                    placeholder="********"
+                    required
+                />
+            </div>
+
+            <div class="mt-4">
+                <label for="role" class="block text-sm font-medium text-gray-700 mb-2">Rol</label>
+                <select name="role" id="role" class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
+                    <option value="">Seleccionar Rol</option>
+                    @foreach($roles as $role)
+                        <option value="{{ $role->id }}" {{ old('role') == $role->id ? 'selected' : '' }}>
+                            {{ $role->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('role')
+                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="flex justify-end mt-6 space-x-3">
+                <x-wire-button href="{{ route('admin.users.index') }}" gray>
+                    Cancelar
+                </x-wire-button>
+                <x-wire-button type="submit" blue>
+                    <i class="fa-solid fa-save mr-2"></i>
+                    Guardar Usuario
+                </x-wire-button>
+            </div>
         </form>
     </x-wire-card>
-
 </x-admin-layout>

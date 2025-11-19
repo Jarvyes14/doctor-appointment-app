@@ -10,7 +10,7 @@ use Illuminate\View\View;
 
 class UserTable extends DataTableComponent
 {
-    protected $model = User::class;
+    //protected $model = User::class;
 
     public function configure(): void
     {
@@ -25,7 +25,7 @@ class UserTable extends DataTableComponent
      */
     public function builder(): Builder
     {
-        return User::query();
+        return User::query()->with('roles');
     }
 
     public function columns(): array
@@ -39,12 +39,22 @@ class UserTable extends DataTableComponent
             Column::make("Email", "email")
                 ->sortable()
                 ->searchable(),
-            Column::make("Fecha de Registro", "created_at")
+            Column::make("Número Id", "id_number")
                 ->sortable()
-                ->format(fn($value) => $value->format('d/m/Y H:i')),
+                ->searchable(),
+            Column::make("Telefono", "phone")
+                ->sortable()
+                ->searchable(),
+            Column::make("Rol", "roles")
+                ->label(function ($row){
+                    return $row->roles->first()?->name ?? 'Sin Rol';
+                })
+                ->sortable()
+                ->searchable(),
             Column::make("Acciones")
                 ->label(function ($row){
-                    return 'Ver Perfil';
+                    return view('admin.users.actions',
+                    ['user' => $row]);
                 }),
         ];
     }

@@ -32,6 +32,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'id_number',
+        'phone',
+        'address',
     ];
 
     /**
@@ -55,17 +58,18 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public static function create(array $array)
+    /**
+     * The "booted" method of the model.
+     * Asigna automáticamente el rol 'Paciente' cuando se crea un nuevo usuario.
+     */
+    protected static function booted(): void
     {
-        // 1. Llama al método 'create' original del modelo Eloquent para crear el usuario.
-        // Asegúrate de que $array contenga al menos 'name', 'email' y 'password'.
-        $user = parent::create($array);
-
-        // 2. Lógica personalizada: Asignar un rol por defecto.
-        // Nota: Asumo que el rol 'user' existe en la base de datos.
-        $user->assignRole('Paciente');
-
-        return $user;
+        static::created(function (User $user) {
+            // Solo asignar rol 'Paciente' si el usuario no tiene ningún rol asignado
+            if (!$user->roles()->exists()) {
+                $user->assignRole('Paciente');
+            }
+        });
     }
 
     /**

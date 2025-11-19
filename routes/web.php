@@ -18,6 +18,12 @@ Route::middleware([
     Route::get('/admin/roles/create', [RoleController::class, 'create'])
         ->name('admin.roles.create');
 
+    Route::post('/admin/users', [UserController::class, 'store'])
+        ->name('admin.users.store');
+
+    Route::get('/admin/users/create', [UserController::class, 'create'])
+        ->name('admin.users.create');
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');

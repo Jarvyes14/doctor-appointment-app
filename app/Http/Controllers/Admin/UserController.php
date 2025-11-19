@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return view('admin.users.index');
+        $users = User::with('roles')->paginate(15);
+        return view('admin.users.index', compact('users'));
     }
 
     public function create()
@@ -23,178 +23,105 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required|unique:users,name']);
-
-        User::create([
-            'name' => $request->name,
-            'guard_name' => 'web'
+        $validated = $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|unique:users,email',
+            'password' => 'required|min:6|confirmed',
+            'id_number'=> 'nullable|string|max:20|unique:users,id_number',
+            'phone'    => 'nullable|string|max:20',
+            'address'  => 'nullable|string|max:255',
+            'role'     => 'required|string|in:Administrador,Doctor,Recepcionista,Paciente',
         ]);
-        session()->flash('swal',
-            [
-                'icon'=>'success',
-                'title'=> 'Usuario creado correctamente',
-                'text' => 'El rol ha sido creado exitosamente'
 
+        $role = $validated['role'];
+        unset($validated['role']);
+        $validated['password'] = Hash::make($validated['password']);
+
+        $user = User::create($validated);
+        $user->assignRole($role);
+
+        session()->flash('swal', [
+            'icon'  => 'success',
+            'title' => 'Usuario creado',
+            'text'  => 'El usuario ha sido creado exitosamente.',
+        ]);
+
+        return redirect()->route('admin.users.index');
+    }
+
+    public function edit(User $user)
+    {
+        return view('admin.users.edit', compact('user'));
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $validated = $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => ['required', 'email', Rule::unique('users', 'email')->ignore($user->id)],
+            'password' => 'nullable|min:6|confirmed',
+            'id_number'=> ['nullable', 'string', 'max:20', Rule::unique('users', 'id_number')->ignore($user->id)],
+            'phone'    => 'nullable|string|max:20',
+            'address'  => 'nullable|string|max:255',
+            'role'     => 'required|string|in:Administrador,Doctor,Recepcionista,Paciente',
+        ]);
+
+        // Si se proporciona una contraseña, encriptarla; si no, eliminarla del array
+        if (!empty($validated['password'])) {
+            $validated['password'] = Hash::make($validated['password']);
+        } else {
+            unset($validated['password']);
+        }
+
+        $role = $validated['role'];
+        unset($validated['role']);
+
+        $user->update($validated);
+
+        // Sincronizar rol (elimina roles anteriores y asigna el nuevo)
+        $user->syncRoles([$role]);
+
+        session()->flash('swal', [
+            'icon'  => 'success',
+            'title' => 'Usuario actualizado',
+            'text'  => 'El usuario ha sido actualizado exitosamente.',
+        ]);
+
+        return redirect()->route('admin.users.index');
+    }
+
+    public function destroy(User $user)
+    {
+        // Evitar eliminar al administrador principal
+        if ($user->id === 1) {
+            session()->flash('swal', [
+                'icon'  => 'error',
+                'title' => 'Error',
+                'text'  => 'No se puede eliminar al administrador principal.',
             ]);
 
-        return redirect()->route('admin.users.index')->with('success', 'Role created successfully');
-    }
-
-    /**
-    public function show(string $id)
-    {
-        //
-    }
-
-
-     * Show the form for editing the specified resource.
-     */
-    /**
-    public function edit(string $id)
-    {
-        if ($id <= 4){
-            session()->flash('swal',
-                [
-                    'icon'=>'error',
-                    'title'=> 'Error',
-                    'text' => 'No puedes editar este rol'
-
-                ]);
-
-            return redirect()->route('admin.users.index')->with('error', 'Access Denied.');
-
-        }else{
-            try {
-                $role = Role::findOrFail($id);
-
-                return view('admin.users.edit', [
-                    'role' => $role,
-                ]);
-
-            } catch (ModelNotFoundException $e) {
-
-                return redirect()->route('admin.users.index')->with('error', [
-                    'icon' => 'error',
-                    'title' => 'Rol no encontrado',
-                    'text' => 'El rol que intentas editar no existe.'
-                ]);
-            }
+            return redirect()->route('admin.users.index');
         }
-    }
-     * Update the specified resource in storage.
-     */
-    /**
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255|unique:users,name,' . $id,
+
+        // Evitar que un usuario se elimine a sí mismo
+        if ($user->id === auth()->id()) {
+            session()->flash('swal', [
+                'icon'  => 'error',
+                'title' => 'Error',
+                'text'  => 'No puedes eliminarte a ti mismo.',
+            ]);
+
+            return redirect()->route('admin.users.index');
+        }
+
+        $user->delete();
+
+        session()->flash('swal', [
+            'icon'  => 'success',
+            'title' => 'Usuario eliminado',
+            'text'  => 'El usuario ha sido eliminado exitosamente.',
         ]);
 
-        try {
-            $role = Role::findOrFail($id);
-
-            if ($role -> name === $request -> name){
-
-                session()->flash('swal',
-                    [
-                        'icon'=>'question',
-                        'title'=> 'Sin cambios',
-                        'text' => 'Ningun cambio fue realizado'
-
-                    ]);
-
-                return redirect()->route('admin.users.index')->with('success', 'Role edited successfully.');
-
-            }else{
-                $role->update($request->only('name'));
-
-                session()->flash('swal',
-                    [
-                        'icon'=>'success',
-                        'title'=> 'Rol editado correctamente',
-                        'text' => 'El rol ha sido editado exitosamente'
-
-                    ]);
-
-                return redirect()->route('admin.users.index')->with('success', 'Role edited successfully.');
-            }
-
-        } catch (Exception $e) {
-
-            Log::error("Error al actualizar el rol ID: {$id}. Mensaje: " . $e->getMessage());
-
-            session()->flash('swal',
-                [
-                    'icon'=>'error',
-                    'title' => 'Error al editar el Rol',
-                    'text' => 'No se pudo editar el rol. Por favor, inténta de nuevo.'
-
-                ]);
-
-            return redirect()->back()->with('error', 'Hubo un error al intentar actualizar el rol. Por favor, inténtalo de nuevo.');
-        }
+        return redirect()->route('admin.users.index');
     }
-
-
-     * Remove the specified resource from storage.
-     */
-        /**
-    public function destroy(string $id)
-    {
-        if ($id <= 4){
-            session()->flash('swal',
-                [
-                    'icon'=>'error',
-                    'title'=> 'Error',
-                    'text' => 'No puedes editar este rol'
-
-                ]);
-
-            return redirect()->route('admin.users.index')->with('error', 'Access Denied.');
-
-        }else{
-            try {
-                $role = Role::findOrFail($id);
-                $role->delete();
-
-                session()->flash('swal',
-                    [
-                        'icon'=>'success',
-                        'title'=> 'Rol eliminado correctamente',
-                        'text' => 'El rol ha sido eliminado exitosamente'
-
-                    ]);
-
-                return redirect()->route('admin.users.index')->with('success', 'Role eliminated successfully.');
-
-            } catch (ModelNotFoundException $e) {
-
-                session()->flash('swal',
-                    [
-                        'icon'=>'error',
-                        'title' => 'Error al encontrar el Rol',
-                        'text' => 'No se pudo encontrar el rol. Por favor, verifica e inténta de nuevo.'
-
-                    ]);
-
-                return redirect()->back()->with('error', 'Hubo un error al encontrar el rol. Por favor, verifica e inténtalo de nuevo.');
-
-
-            } catch (Exception $e) {
-                Log::error("Error al eliminar el rol ID: {$id}. Mensaje: " . $e->getMessage());
-
-                session()->flash('swal',
-                    [
-                        'icon'=>'error',
-                        'title' => 'Error al eliminar el Rol',
-                        'text' => 'No se pudo eliminar el rol. Por favor, inténta de nuevo.'
-
-                    ]);
-
-                return redirect()->back()->with('error', 'Hubo un error al eliminar actualizar el rol. Por favor, inténtalo de nuevo.');
-
-
-            }
-        }
-    }*/
 }
