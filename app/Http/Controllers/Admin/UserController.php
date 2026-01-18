@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +19,8 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('admin.users.create');
+        $roles = Role::all();
+        return view('admin.users.create', compact('roles'));
     }
 
     public function store(Request $request)
@@ -49,18 +51,19 @@ class UserController extends Controller
         return redirect()->route('admin.users.index');
     }
 
-    public function edit(User $user)
+    public function edit(User $usuario)
     {
-        return view('admin.users.edit', compact('user'));
+        $roles = Role::all();
+        return view('admin.users.edit', ['user' => $usuario]);
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $usuario)
     {
         $validated = $request->validate([
             'name'     => 'required|string|max:255',
-            'email'    => ['required', 'email', Rule::unique('users', 'email')->ignore($user->id)],
+            'email'    => ['required', 'email', Rule::unique('users', 'email')->ignore($usuario->id)],
             'password' => 'nullable|min:6|confirmed',
-            'id_number'=> ['nullable', 'string', 'max:20', Rule::unique('users', 'id_number')->ignore($user->id)],
+            'id_number'=> ['nullable', 'string', 'max:20', Rule::unique('users', 'id_number')->ignore($usuario->id)],
             'phone'    => 'nullable|string|max:20',
             'address'  => 'nullable|string|max:255',
             'role'     => 'required|string|in:Administrador,Doctor,Recepcionista,Paciente',
@@ -76,10 +79,10 @@ class UserController extends Controller
         $role = $validated['role'];
         unset($validated['role']);
 
-        $user->update($validated);
+        $usuario->update($validated);
 
         // Sincronizar rol (elimina roles anteriores y asigna el nuevo)
-        $user->syncRoles([$role]);
+        $usuario->syncRoles([$role]);
 
         session()->flash('swal', [
             'icon'  => 'success',
@@ -90,10 +93,10 @@ class UserController extends Controller
         return redirect()->route('admin.users.index');
     }
 
-    public function destroy(User $user)
+    public function destroy(User $usuario)
     {
         // Evitar eliminar al administrador principal
-        if ($user->id === 1) {
+        if ($usuario->id === 1) {
             session()->flash('swal', [
                 'icon'  => 'error',
                 'title' => 'Error',
@@ -104,7 +107,7 @@ class UserController extends Controller
         }
 
         // Evitar que un usuario se elimine a sí mismo
-        if ($user->id === auth()->id()) {
+        if ($usuario->id === auth()->id()) {
             session()->flash('swal', [
                 'icon'  => 'error',
                 'title' => 'Error',
@@ -114,7 +117,7 @@ class UserController extends Controller
             return redirect()->route('admin.users.index');
         }
 
-        $user->delete();
+        $usuario->delete();
 
         session()->flash('swal', [
             'icon'  => 'success',

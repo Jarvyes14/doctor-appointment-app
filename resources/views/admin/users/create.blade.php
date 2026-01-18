@@ -14,6 +14,7 @@
                     placeholder="Nombre completo"
                     value="{{ old('name') }}"
                     required
+                    autocomplete="name"
                 />
 
                 <x-wire-input
@@ -23,6 +24,7 @@
                     placeholder="correo@ejemplo.com"
                     value="{{ old('email') }}"
                     required
+                    autocomplete="email"
                 />
             </div>
 
@@ -61,6 +63,7 @@
                     type="password"
                     placeholder="********"
                     required
+                    inputmode="password"
                 />
 
                 <x-wire-input
@@ -69,6 +72,7 @@
                     type="password"
                     placeholder="********"
                     required
+                    inputmode="password"
                 />
             </div>
 

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/admin');
@@ -20,6 +22,9 @@ Route::middleware([
 
     Route::post('/admin/users', [UserController::class, 'store'])
         ->name('admin.users.store');
+
+    Route::get('/admin/users/index', [UserController::class, 'index'])
+        ->name('admin.users.index');
 
     Route::get('/admin/users/create', [UserController::class, 'create'])
         ->name('admin.users.create');
