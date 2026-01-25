@@ -1,0 +1,108 @@
+
+s__sonar_lambda_C:\Users\javie\Desktop\Laravel\doctor-appointment-app\app\Providers\FortifyServiceProvider.php_38_34h
+^C:\Users\javie\Desktop\Laravel\doctor-appointment-app\app\Providers\FortifyServiceProvider.php&" &(*"1*â
+
+1' '(s 
+
+&" &(*
+%1"__entrypoint¼¹
+&" &(*#
+$requestilluminate\http\request".illuminate\http\request::__sonar_inject_symbol*A
+
+__unknown_file (%
+#
+$requestilluminate\http\request2__sonar_inject_symbola
+_
+&" &(*
+
+$request"__id*A
+
+__unknown_file (%
+#
+$requestilluminate\http\requestn
+l
+'I '(\
+%2"!laravel\fortify\fortify::username*7
+
+__unknown_file ("
+laravel\fortify\fortifyge
+'9 '(]
+%3*(
+
+__unknown_file (
+
+
+$request*"
+
+__unknown_file (
+
+%22inputŽ
+‹
+'. '(^
+%4"illuminate\support\str::lower*6
+
+__unknown_file ("
+illuminate\support\str*"
+
+__unknown_file (
+
+%3@>
+'c '(q
+%5*(
+
+__unknown_file (
+
+
+$request2ipW
+U
+'. '(q
+%6"__concat*
+'. '(^
+
+%4*
+'_ '(b
+|*
+'c '(q
+
+%5–
+“
+' '(r
+%7"%illuminate\support\str::transliterate*6
+
+__unknown_file ("
+illuminate\support\str*"
+
+__unknown_file (
+
+%6F
+D
+' '(r
+$throttleKey"__id*"
+
+__unknown_file (
+
+%7ª
+§
+) )(&
+%8".illuminate\cache\ratelimiting\limit::perminute*C
+
+__unknown_file ('"%
+#illuminate\cache\ratelimiting\limit* 
+
+__unknown_file (2hf
+) )(8
+%9*"
+
+__unknown_file (
+
+%8*,
+
+__unknown_file (
+
+$throttleKey2by"
+) )(9
+
+%9:/
+&, &(<#
+$requestilluminate\http\requestB(&
+$app\providers\fortifyserviceproviderH

@@ -1,0 +1,104 @@
+
+Stests\feature\emailverificationtest::test_email_verification_screen_can_be_renderedg
+]C:\Users\javie\Desktop\Laravel\doctor-appointment-app\tests\Feature\EmailVerificationTest.php (B"1*¿
+2 (Fª§
+ (E
+%3*C
+
+__unknown_file ('%
+#tests\feature\emailverificationtest*?
+
+__unknown_file (#!
+Email verification not enabled.2marktestskipped*
+3*®
+3 (L]
+[
+ (
+%4"app\models\user::factory*/
+
+__unknown_file ("
+app\models\userHF
+ (3
+%5*"
+
+__unknown_file (
+
+%42withpersonalteamB@
+ (A
+%6*"
+
+__unknown_file (
+
+%52
+unverified><
+ (K
+%7*"
+
+__unknown_file (
+
+%62create?
+=
+ (K
+$user"__id*"
+
+__unknown_file (
+
+%7‰†
+ (*
+%8*C
+
+__unknown_file ('%
+#tests\feature\emailverificationtest*%
+
+__unknown_file (	
+
+$user2actingasjh
+ (@
+%9*"
+
+__unknown_file (
+
+%8*-
+
+__unknown_file (
+/email/verify2getC
+A
+ (@
+	$response"__id*"
+
+__unknown_file (
+
+%9om
+ ($
+%10*)
+
+__unknown_file (
+
+	$response*!
+
+__unknown_file (2È2assertstatus*
+4*A
+4
+EmailVerificationTest.php"
+ (
+implicit return*§
+1 (>y
+w
+  (=
+%1"+laravel\fortify\features::emailverification*8
+
+__unknown_file ("
+laravel\fortify\features”
+‘
+ (>
+%2"!laravel\fortify\features::enabled*8
+
+__unknown_file ("
+laravel\fortify\features*"
+
+__unknown_file (
+
+%1*
+2
+3B'%
+#tests\feature\emailverificationtestH

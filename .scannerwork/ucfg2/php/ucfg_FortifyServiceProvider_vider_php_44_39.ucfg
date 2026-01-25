@@ -1,0 +1,62 @@
+
+s__sonar_lambda_C:\Users\javie\Desktop\Laravel\doctor-appointment-app\app\Providers\FortifyServiceProvider.php_44_39h
+^C:\Users\javie\Desktop\Laravel\doctor-appointment-app\app\Providers\FortifyServiceProvider.php,' ,(/"1* 
+1- -(Q 
+
+,' ,(/
+%1"__entrypoint¼¹
+,' ,(/#
+$requestilluminate\http\request".illuminate\http\request::__sonar_inject_symbol*A
+
+__unknown_file (%
+#
+$requestilluminate\http\request2__sonar_inject_symbola
+_
+,' ,(/
+
+$request"__id*A
+
+__unknown_file (%
+#
+$requestilluminate\http\requestª
+§
+- -(&
+%2".illuminate\cache\ratelimiting\limit::perminute*C
+
+__unknown_file ('"%
+#illuminate\cache\ratelimiting\limit* 
+
+__unknown_file (2EC
+-+ -(>
+%3*(
+
+__unknown_file (
+
+
+$request2sessionec
+-+ -(O
+%4*"
+
+__unknown_file (
+
+%3*(
+
+__unknown_file (
+
+login.id2get^\
+- -(P
+%5*"
+
+__unknown_file (
+
+%2*"
+
+__unknown_file (
+
+%42by"
+- -(Q
+
+%5:/
+,1 ,(A#
+$requestilluminate\http\requestB(&
+$app\providers\fortifyserviceproviderH

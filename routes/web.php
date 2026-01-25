@@ -29,6 +29,9 @@ Route::middleware([
     Route::get('/admin/users/create', [UserController::class, 'create'])
         ->name('admin.users.create');
 
+    Route::delete('/admin/users', [UserController::class, 'destroy'])
+        ->name('admin.users.destroy');
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');

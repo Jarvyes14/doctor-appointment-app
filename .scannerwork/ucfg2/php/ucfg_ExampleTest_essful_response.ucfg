@@ -1,0 +1,33 @@
+
+Mtests\feature\exampletest::test_the_application_returns_a_successful_response]
+SC:\Users\javie\Desktop\Laravel\doctor-appointment-app\tests\Feature\ExampleTest.php (F"1*7
+2
+ExampleTest.php"
+ (
+implicit return*¾
+1 ($us
+ (#
+%1*9
+
+__unknown_file (
+tests\feature\exampletest*!
+
+__unknown_file (
+/2getC
+A
+ (#
+	$response"__id*"
+
+__unknown_file (
+
+%1nl
+ ($
+%2*)
+
+__unknown_file (
+
+	$response*!
+
+__unknown_file (2È2assertstatus*
+2B
+tests\feature\exampletestH

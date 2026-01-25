@@ -161,6 +161,16 @@ class RoleController extends Controller
         }else{
             try {
                 $role = Role::findOrFail($id);
+
+                if ($role->users()->count() > 0) {
+                    session()->flash('swal', [
+                        'icon'  => 'warning',
+                        'title' => 'Rol en uso',
+                        'text'  => 'No se puede eliminar el rol porque tiene usuarios asociados. Reasigna a los usuarios primero.',
+                    ]);
+                    return redirect()->route('admin.roles.index');
+                }
+
                 $role->delete();
 
                 session()->flash('swal',

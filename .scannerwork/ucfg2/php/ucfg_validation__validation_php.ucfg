@@ -1,0 +1,3118 @@
+
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php
+__unknown_file ("1*±∆
+1T
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php (ig
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%1"$Array“
+œ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%2"__mapSet*
+ (
+
+%1*
+ (
+
+accepted*6
+ (*(
+&El campo :attribute debe ser aceptado.Ó
+Î
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%3"__mapSet*
+ (
+
+%1*
+ (
+accepted_if*O
+ (CA
+?El campo :attribute debe ser aceptado cuando :other sea :value.€
+ÿ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%4"__mapSet*
+ (
+
+%1*
+ (
+
+active_url*=
+ (1/
+-El campo :attribute debe ser una URL v√°lida.‚
+ﬂ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%5"__mapSet*
+ (
+
+%1*
+ (	
+after*I
+ (=;
+9El campo :attribute debe ser una fecha posterior a :date.Û
+
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%6"__mapSet*
+ (
+
+%1*
+ (
+after_or_equal*Q
+ (EC
+AEl campo :attribute debe ser una fecha posterior o igual a :date.ÿ
+’
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%7"__mapSet*
+ (
+
+%1*
+ (	
+alpha*?
+ (31
+/El campo :attribute s√≥lo debe contener letras.Ä
+˝
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%8"__mapSet*
+ (
+
+%1*
+ (
+
+alpha_dash*b
+ (VT
+REl campo :attribute s√≥lo debe contener letras, n√∫meros, guiones y guiones bajos.Á
+‰
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%9"__mapSet*
+ (
+
+%1*
+ (
+	alpha_num*J
+ (><
+:El campo :attribute s√≥lo debe contener letras y n√∫meros.Õ
+ 
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%10"__mapSet*
+ (
+
+%1*
+ (
+
+any_of*2
+ (&$
+"El campo :attribute no es v√°lido.”
+–
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%11"__mapSet*
+ (
+
+%1*
+ (	
+array*9
+ (-+
+)El campo :attribute debe ser un conjunto.á
+Ñ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%12"__mapSet*
+ (
+
+%1*
+ (	
+ascii*m
+ (a_
+]El campo :attribute solo debe contener caracteres alfanum√©ricos y s√≠mbolos de un solo byte.„
+‡
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%13"__mapSet*
+ (
+
+%1*
+ (
+
+before*H
+ (<:
+8El campo :attribute debe ser una fecha anterior a :date.Ù
+Ò
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%14"__mapSet*
+ (
+
+%1*
+ (
+before_or_equal*P
+ (DB
+@El campo :attribute debe ser una fecha anterior o igual a :date.ig
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php  (
+%15"$ArrayÍ
+Á
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php  (
+%16"__mapSet*
+ (
+
+%15*
+ (	
+array*P
+ (DB
+@El campo :attribute tiene que tener entre :min - :max elementos.‰
+·
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php  (
+%17"__mapSet*
+ (
+
+%15*
+ (
+file*K
+ (?=
+;El campo :attribute debe pesar entre :min - :max kilobytes.‚
+ﬂ
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php  (
+%18"__mapSet*
+ (
+
+%15*
+ (	
+numeric*F
+ (:8
+6El campo :attribute tiene que estar entre :min - :max.Ï
+È
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php  (
+%19"__mapSet*
+ (
+
+%15*
+ (
+
+string*Q
+ (EC
+AEl campo :attribute tiene que tener entre :min - :max caracteres.Ø
+¨
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%20"__mapSet*
+ (
+
+%1*
+ (	
+between*
+ (
+
+%15Ê
+„
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%21"__mapSet*
+ (
+
+%1*
+ (	
+boolean*J
+ (><
+:El campo :attribute debe tener un valor verdadero o falso.‹
+Ÿ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%22"__mapSet*
+ (
+
+%1*
+ (
+can*D
+ (86
+4El campo :attribute contiene un valor no autorizado.Ÿ
+÷
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%23"__mapSet*
+ (
+
+%1*
+ (
+	confirmed*;
+ (/-
++La confirmaci√≥n de :attribute no coincide.ﬂ
+‹
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%24"__mapSet*
+ (
+
+%1*
+ (
+
+contains*B
+ (64
+2Al campo :attribute le falta un valor obligatorio.“
+œ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%25"__mapSet*
+ (
+
+%1* 
+ (
+current_password*-
+ (!
+La contrase√±a es incorrecta.ÿ
+’
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%26"__mapSet*
+ (
+
+%1*
+ (
+date*?
+ (31
+/El campo :attribute debe ser una fecha v√°lida.Â
+‚
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%27"__mapSet*
+ (
+
+%1*
+ (
+date_equals*E
+ (97
+5El campo :attribute debe ser una fecha igual a :date.Í
+Á
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%28"__mapSet*
+ (
+
+%1*
+ (
+date_format*J
+ (><
+:El campo :attribute debe coincidir con el formato :format.Â
+‚
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%29"__mapSet*
+ (
+
+%1*
+ (	
+decimal*I
+ (=;
+9El campo :attribute debe tener :decimal cifras decimales.‘
+—
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%30"__mapSet*
+ (
+
+%1*
+ (
+
+declined*7
+ (+)
+'El campo :attribute debe ser rechazado.
+Ì
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%31"__mapSet*
+ (
+
+%1*
+ (
+declined_if*P
+ (DB
+@El campo :attribute debe ser rechazado cuando :other sea :value.‡
+›
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%32"__mapSet*
+ (
+
+%1*
+ (
+	different*B
+ (64
+2El campo :attribute y :other deben ser diferentes.€
+ÿ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%33"__mapSet*
+ (
+
+%1*
+ (
+
+digits*@
+ (42
+0El campo :attribute debe tener :digits d√≠gitos.Ì
+Í
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%34"__mapSet*
+ (
+
+%1*
+ (
+digits_between*J
+ (><
+:El campo :attribute debe tener entre :min y :max d√≠gitos.Î
+Ë
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%35"__mapSet*
+ (
+
+%1*
+ (
+
+dimensions*L
+ (@>
+<El campo :attribute tiene dimensiones de imagen no v√°lidas.›
+⁄
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%36"__mapSet*
+ (
+
+%1*
+ (
+
+distinct*@
+ (42
+0El campo :attribute contiene un valor duplicado.É
+Ä
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%37"__mapSet*
+ (
+
+%1*
+ (
+doesnt_contain*`
+ (TR
+PEl campo :attribute no debe contener ninguno de los siguientes valores: :values.˝
+˙
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%38"__mapSet*
+ (
+
+%1*
+ (
+doesnt_end_with*Y
+ (MK
+IEl campo :attribute no debe finalizar con uno de los siguientes: :values.˛
+˚
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%39"__mapSet*
+ (
+
+%1*!
+ (
+doesnt_start_with*X
+ (LJ
+HEl campo :attribute no debe comenzar con uno de los siguientes: :values.÷
+”
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%40"__mapSet*
+ (
+
+%1*
+ (	
+email*<
+ (0.
+,El campo :attribute no es un correo v√°lido.˚
+¯
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%41"__mapSet*
+ (
+
+%1*
+ (
+	ends_with*]
+ (QO
+MEl campo :attribute debe finalizar con uno de los siguientes valores: :valuesË
+Â
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%42"__mapSet*
+ (
+
+%1*
+ (
+enum*O
+ (CA
+?El campo :attribute no est√° en la lista de valores permitidos.…
+∆
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%43"__mapSet*
+ (
+
+%1*
+ (
+
+exists*.
+ (" 
+El campo :attribute no existe.˘
+ˆ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%44"__mapSet*
+ (
+
+%1*
+ (
+
+extensions*Z
+ (NL
+JEl campo :attribute debe tener una de las siguientes extensiones: :values.—
+Œ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%45"__mapSet*
+ (
+
+%1*
+ (
+file*8
+ (,*
+(El campo :attribute debe ser un archivo.Œ
+À
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%46"__mapSet*
+ (
+
+%1*
+ (
+
+filled*3
+ ('%
+#El campo :attribute es obligatorio.ig
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php3  8(
+%47"$Array‚
+ﬂ
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php3  8(
+%48"__mapSet*
+ (
+
+%47*
+ (	
+array*H
+ (<:
+8El campo :attribute debe tener m√°s de :value elementos.·
+ﬁ
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php3  8(
+%49"__mapSet*
+ (
+
+%47*
+ (
+file*H
+ (<:
+8El campo :attribute debe tener m√°s de :value kilobytes.⁄
+◊
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php3  8(
+%50"__mapSet*
+ (
+
+%47*
+ (	
+numeric*>
+ (20
+.El campo :attribute debe ser mayor que :value.‰
+·
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php3  8(
+%51"__mapSet*
+ (
+
+%47*
+ (
+
+string*I
+ (=;
+9El campo :attribute debe tener m√°s de :value caracteres.™
+ß
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%52"__mapSet*
+ (
+
+%1*
+ (
+gt*
+ (
+
+%47ig
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php9  >(
+%53"$ArrayÁ
+‰
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php9  >(
+%54"__mapSet*
+ (
+
+%53*
+ (	
+array*M
+ (A?
+=El campo :attribute debe tener como m√≠nimo :value elementos.Ê
+„
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php9  >(
+%55"__mapSet*
+ (
+
+%53*
+ (
+file*M
+ (A?
+=El campo :attribute debe tener como m√≠nimo :value kilobytes.›
+⁄
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php9  >(
+%56"__mapSet*
+ (
+
+%53*
+ (	
+numeric*A
+ (53
+1El campo :attribute debe ser como m√≠nimo :value.È
+Ê
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php9  >(
+%57"__mapSet*
+ (
+
+%53*
+ (
+
+string*N
+ (B@
+>El campo :attribute debe tener como m√≠nimo :value caracteres.´
+®
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%58"__mapSet*
+ (
+
+%1*
+ (
+gte*
+ (
+
+%53Í
+Á
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%59"__mapSet*
+ (
+
+%1*
+ (
+	hex_color*L
+ (@>
+<El campo :attribute debe tener un color hexadecimal v√°lido.“
+œ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%60"__mapSet*
+ (
+
+%1*
+ (	
+image*8
+ (,*
+(El campo :attribute debe ser una imagen.Ê
+„
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%61"__mapSet*
+ (
+
+%1*
+ (
+in*O
+ (CA
+?El campo :attribute no est√° en la lista de valores permitidos.ÿ
+’
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%62"__mapSet*
+ (
+
+%1*
+ (
+
+in_array*;
+ (/-
++El campo :attribute debe existir en :other.É
+Ä
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%63"__mapSet*
+ (
+
+%1*
+ (
+in_array_keys*a
+ (US
+QEl campo :attribute debe contener al menos una de las siguientes claves: :values.€
+ÿ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%64"__mapSet*
+ (
+
+%1*
+ (	
+integer*?
+ (31
+/El campo :attribute debe ser un n√∫mero entero.ﬁ
+€
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%65"__mapSet*
+ (
+
+%1*
+ (
+ip*G
+ (;9
+7El campo :attribute debe ser una direcci√≥n IP v√°lida.‚
+ﬂ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%66"__mapSet*
+ (
+
+%1*
+ (
+ipv4*I
+ (=;
+9El campo :attribute debe ser una direcci√≥n IPv4 v√°lida.‚
+ﬂ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%67"__mapSet*
+ (
+
+%1*
+ (
+ipv6*I
+ (=;
+9El campo :attribute debe ser una direcci√≥n IPv6 v√°lida.ﬁ
+€
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%68"__mapSet*
+ (
+
+%1*
+ (
+json*E
+ (97
+5El campo :attribute debe ser una cadena JSON v√°lida.–
+Õ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%69"__mapSet*
+ (
+
+%1*
+ (
+list*7
+ (+)
+'El campo :attribute debe ser una lista.€
+ÿ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%70"__mapSet*
+ (
+
+%1*
+ (
+	lowercase*=
+ (1/
+-El campo :attribute debe estar en min√∫scula.ig
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpK  P(
+%71"$Array„
+‡
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpK  P(
+%72"__mapSet*
+ (
+
+%71*
+ (	
+array*I
+ (=;
+9El campo :attribute debe tener menos de :value elementos.‚
+ﬂ
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpK  P(
+%73"__mapSet*
+ (
+
+%71*
+ (
+file*I
+ (=;
+9El campo :attribute debe tener menos de :value kilobytes.⁄
+◊
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpK  P(
+%74"__mapSet*
+ (
+
+%71*
+ (	
+numeric*>
+ (20
+.El campo :attribute debe ser menor que :value.Â
+‚
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpK  P(
+%75"__mapSet*
+ (
+
+%71*
+ (
+
+string*J
+ (><
+:El campo :attribute debe tener menos de :value caracteres.™
+ß
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%76"__mapSet*
+ (
+
+%1*
+ (
+lt*
+ (
+
+%71ig
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpQ  V(
+%77"$ArrayÁ
+‰
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpQ  V(
+%78"__mapSet*
+ (
+
+%77*
+ (	
+array*M
+ (A?
+=El campo :attribute debe tener como m√°ximo :value elementos.Ê
+„
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpQ  V(
+%79"__mapSet*
+ (
+
+%77*
+ (
+file*M
+ (A?
+=El campo :attribute debe tener como m√°ximo :value kilobytes.›
+⁄
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpQ  V(
+%80"__mapSet*
+ (
+
+%77*
+ (	
+numeric*A
+ (53
+1El campo :attribute debe ser como m√°ximo :value.È
+Ê
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpQ  V(
+%81"__mapSet*
+ (
+
+%77*
+ (
+
+string*N
+ (B@
+>El campo :attribute debe tener como m√°ximo :value caracteres.´
+®
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%82"__mapSet*
+ (
+
+%1*
+ (
+lte*
+ (
+
+%77Ë
+Â
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%83"__mapSet*
+ (
+
+%1*
+ (
+mac_address*H
+ (<:
+8El campo :attribute debe ser una direcci√≥n MAC v√°lida.ig
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpX  ](
+%84"$Array„
+‡
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpX  ](
+%85"__mapSet*
+ (
+
+%84*
+ (	
+array*I
+ (=;
+9El campo :attribute no debe tener m√°s de :max elementos.‚
+ﬂ
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpX  ](
+%86"__mapSet*
+ (
+
+%84*
+ (
+file*I
+ (=;
+9El campo :attribute no debe ser mayor que :max kilobytes.€
+ÿ
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpX  ](
+%87"__mapSet*
+ (
+
+%84*
+ (	
+numeric*?
+ (31
+/El campo :attribute no debe ser mayor que :max.Â
+‚
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpX  ](
+%88"__mapSet*
+ (
+
+%84*
+ (
+
+string*J
+ (><
+:El campo :attribute no debe ser mayor que :max caracteres.´
+®
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%89"__mapSet*
+ (
+
+%1*
+ (
+max*
+ (
+
+%84Á
+‰
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%90"__mapSet*
+ (
+
+%1*
+ (
+
+max_digits*H
+ (<:
+8El campo :attribute no debe tener m√°s de :max d√≠gitos.Á
+‰
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%91"__mapSet*
+ (
+
+%1*
+ (	
+mimes*M
+ (A?
+=El campo :attribute debe ser un archivo con formato: :values.Î
+Ë
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%92"__mapSet*
+ (
+
+%1*
+ (
+	mimetypes*M
+ (A?
+=El campo :attribute debe ser un archivo con formato: :values.ig
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpa  f(
+%93"$Array·
+ﬁ
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpa  f(
+%94"__mapSet*
+ (
+
+%93*
+ (	
+array*G
+ (;9
+7El campo :attribute debe tener al menos :min elementos.Ê
+„
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpa  f(
+%95"__mapSet*
+ (
+
+%93*
+ (
+file*M
+ (A?
+=El tama√±o de :attribute debe ser de al menos :min kilobytes.ﬂ
+‹
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpa  f(
+%96"__mapSet*
+ (
+
+%93*
+ (	
+numeric*C
+ (75
+3El tama√±o de :attribute debe ser de al menos :min.Ê
+„
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpa  f(
+%97"__mapSet*
+ (
+
+%93*
+ (
+
+string*K
+ (?=
+;El campo :attribute debe contener al menos :min caracteres.´
+®
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%98"__mapSet*
+ (
+
+%1*
+ (
+min*
+ (
+
+%93Â
+‚
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%99"__mapSet*
+ (
+
+%1*
+ (
+
+min_digits*F
+ (:8
+6El campo :attribute debe tener al menos :min d√≠gitos.ÿ
+’
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%100"__mapSet*
+ (
+
+%1*
+ (	
+missing*;
+ (/-
++El campo :attribute no debe estar presente.Ù
+Ò
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%101"__mapSet*
+ (
+
+%1*
+ (
+
+missing_if*T
+ (HF
+DEl campo :attribute no debe estar presente cuando :other sea :value.˝
+˙
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%102"__mapSet*
+ (
+
+%1*
+ (
+missing_unless*Y
+ (MK
+IEl campo :attribute no debe estar presente a menos que :other sea :value.å
+â
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%103"__mapSet*
+ (
+
+%1*
+ (
+missing_with*j
+ (^\
+ZEl campo :attribute no debe estar presente si alguno de los campos :values est√° presente.å
+â
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%104"__mapSet*
+ (
+
+%1* 
+ (
+missing_with_all*f
+ (ZX
+VEl campo :attribute no debe estar presente cuando los campos :values est√©n presentes.·
+ﬁ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%105"__mapSet*
+ (
+
+%1*
+ (
+multiple_of*@
+ (42
+0El campo :attribute debe ser m√∫ltiplo de :value⁄
+◊
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%106"__mapSet*
+ (
+
+%1*
+ (
+
+not_in*>
+ (20
+.El campo :attribute no debe estar en la lista.›
+⁄
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%107"__mapSet*
+ (
+
+%1*
+ (
+	not_regex*>
+ (20
+.El formato del campo :attribute no es v√°lido.‘
+—
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%108"__mapSet*
+ (
+
+%1*
+ (	
+numeric*7
+ (+)
+'El campo :attribute debe ser num√©rico.jh
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpq  w(
+%109"$Array›
+⁄
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpq  w(
+%110"__mapSet*
+ (
+
+%109*
+ (	
+letters*?
+ (31
+/La :attribute debe contener al menos una letra.˜
+Ù
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpq  w(
+%111"__mapSet*
+ (
+
+%109*
+ (	
+mixed*[
+ (OM
+KLa :attribute debe contener al menos una letra may√∫scula y una min√∫scula.ﬁ
+€
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpq  w(
+%112"__mapSet*
+ (
+
+%109*
+ (	
+numbers*@
+ (42
+0La :attribute debe contener al menos un n√∫mero.ﬂ
+‹
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpq  w(
+%113"__mapSet*
+ (
+
+%109*
+ (	
+symbols*A
+ (53
+1La :attribute debe contener al menos un s√≠mbolo.≥
+∞
+V
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpq  w(
+%114"__mapSet*
+ (
+
+%109*
+ (
+uncompromised*é
+ (Å
+}La :attribute proporcionada se ha visto comprometida en una filtraci√≥n de datos (data leak). Elija una :attribute diferente.≤
+Ø
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%115"__mapSet*
+ (
+
+%1*
+ (
+
+password*
+ (
+
+%109’
+“
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%116"__mapSet*
+ (
+
+%1*
+ (	
+present*8
+ (,*
+(El campo :attribute debe estar presente.
+Ì
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%117"__mapSet*
+ (
+
+%1*
+ (
+
+present_if*P
+ (DB
+@El campo :attribute debe estar presente cuando :other es :value.˙
+˜
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%118"__mapSet*
+ (
+
+%1*
+ (
+present_unless*V
+ (JH
+FEl campo :attribute debe estar presente a menos que :other sea :value.¯
+ı
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%119"__mapSet*
+ (
+
+%1*
+ (
+present_with*V
+ (JH
+FEl campo :attribute debe estar presente cuando :values est√© presente.˛
+˚
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%120"__mapSet*
+ (
+
+%1* 
+ (
+present_with_all*X
+ (LJ
+HEl campo :attribute debe estar presente cuando :values est√©n presentes.‘
+—
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%121"__mapSet*
+ (
+
+%1*
+ (
+
+prohibited*4
+ ((&
+$El campo :attribute est√° prohibido.Ô
+Ï
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%122"__mapSet*
+ (
+
+%1*
+ (
+prohibited_if*L
+ (@>
+<El campo :attribute est√° prohibido cuando :other es :value.¯
+ı
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%123"__mapSet*
+ (
+
+%1*&
+ (
+prohibited_if_accepted*L
+ (@>
+<El campo :attribute est√° prohibido cuando se acepta :other.˘
+ˆ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%124"__mapSet*
+ (
+
+%1*&
+ (
+prohibited_if_declined*M
+ (A?
+=El campo :attribute est√° prohibido cuando se rechaza :other.˙
+˜
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%125"__mapSet*
+ (
+
+%1*!
+ (
+prohibited_unless*S
+ (GE
+CEl campo :attribute est√° prohibido a menos que :other sea :values.Â
+‚
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%126"__mapSet*
+ (
+
+%1*
+ (
+	prohibits*F
+ (:8
+6El campo :attribute prohibe que :other est√© presente.Ÿ
+÷
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%127"__mapSet*
+ (
+
+%1*
+ (	
+regex*>
+ (20
+.El formato del campo :attribute no es v√°lido.—
+Œ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%128"__mapSet*
+ (
+
+%1*
+ (
+
+required*3
+ ('%
+#El campo :attribute es obligatorio.Ú
+Ô
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%129"__mapSet*
+ (
+
+%1*#
+ (
+required_array_keys*I
+ (=;
+9El campo :attribute debe contener entradas para: :values.Ï
+È
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%130"__mapSet*
+ (
+
+%1*
+ (
+required_if*K
+ (?=
+;El campo :attribute es obligatorio cuando :other es :value.Û
+
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%131"__mapSet*
+ (
+
+%1*$
+ (
+required_if_accepted*I
+ (=;
+9El campo :attribute es obligatorio si :other es aceptado.Ù
+Ò
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%132"__mapSet*
+ (
+
+%1*$
+ (
+required_if_declined*J
+ (><
+:El campo :attribute es obligatorio si :other es rechazado.¸
+˘
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%133"__mapSet*
+ (
+
+%1*
+ (
+required_unless*W
+ (KI
+GEl campo :attribute es obligatorio a menos que :other est√© en :values.Ù
+Ò
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%134"__mapSet*
+ (
+
+%1*
+ (
+required_with*Q
+ (EC
+AEl campo :attribute es obligatorio cuando :values est√° presente.˙
+˜
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%135"__mapSet*
+ (
+
+%1*!
+ (
+required_with_all*S
+ (GE
+CEl campo :attribute es obligatorio cuando :values est√°n presentes.˙
+˜
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%136"__mapSet*
+ (
+
+%1* 
+ (
+required_without*T
+ (HF
+DEl campo :attribute es obligatorio cuando :values no est√° presente.Ü
+É
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%137"__mapSet*
+ (
+
+%1*$
+ (
+required_without_all*\
+ (PN
+LEl campo :attribute es obligatorio cuando ninguno de :values est√° presente.Ÿ
+÷
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%138"__mapSet*
+ (
+
+%1*
+ (
+same*?
+ (31
+/Los campos :attribute y :other deben coincidir.lj
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpè  î(
+%139"$Array‡
+›
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpè  î(
+%140"__mapSet*
+ (
+
+%139*
+ (	
+array*B
+ (64
+2El campo :attribute debe contener :size elementos.ﬂ
+‹
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpè  î(
+%141"__mapSet*
+ (
+
+%139*
+ (
+file*B
+ (64
+2El tama√±o de :attribute debe ser :size kilobytes.ÿ
+’
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpè  î(
+%142"__mapSet*
+ (
+
+%139*
+ (	
+numeric*8
+ (,*
+(El tama√±o de :attribute debe ser :size.‚
+ﬂ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpè  î(
+%143"__mapSet*
+ (
+
+%139*
+ (
+
+string*C
+ (75
+3El campo :attribute debe contener :size caracteres.Æ
+´
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%144"__mapSet*
+ (
+
+%1*
+ (
+size*
+ (
+
+%139˝
+˙
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%145"__mapSet*
+ (
+
+%1*
+ (
+starts_with*\
+ (PN
+LEl campo :attribute debe comenzar con uno de los siguientes valores: :values‚
+ﬂ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%146"__mapSet*
+ (
+
+%1*
+ (
+
+string*F
+ (:8
+6El campo :attribute debe ser una cadena de caracteres.‰
+·
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%147"__mapSet*
+ (
+
+%1*
+ (
+
+timezone*F
+ (:8
+6El campo :attribute debe ser una zona horaria v√°lida.◊
+‘
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%148"__mapSet*
+ (
+
+%1*
+ (
+ulid*=
+ (1/
+-El campo :attribute debe ser un ULID v√°lido.÷
+”
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%149"__mapSet*
+ (
+
+%1*
+ (
+
+unique*:
+ (.,
+*El campo :attribute ya ha sido registrado. 
+«
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%150"__mapSet*
+ (
+
+%1*
+ (
+
+uploaded*,
+ ( 
+Subir :attribute ha fallado.‹
+Ÿ
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%151"__mapSet*
+ (
+
+%1*
+ (
+	uppercase*=
+ (1/
+-El campo :attribute debe estar en may√∫scula.÷
+”
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%152"__mapSet*
+ (
+
+%1*
+ (
+url*=
+ (1/
+-El campo :attribute debe ser una URL v√°lida.◊
+‘
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%153"__mapSet*
+ (
+
+%1*
+ (
+uuid*=
+ (1/
+-El campo :attribute debe ser un UUID v√°lido.lj
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%154"$Array∫
+∑
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%155"__mapSet*
+ (
+
+%154*
+ (	
+address*
+ (
+
+direcci√≥n≈
+¬
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%156"__mapSet*
+ (
+
+%154*
+ (
+affiliate_url*
+ (
+URL de afiliado∞
+≠
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%157"__mapSet*
+ (
+
+%154*
+ (
+age*
+ (
+edad∑
+¥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%158"__mapSet*
+ (
+
+%154*
+ (
+
+amount*
+ (
+
+cantidadº
+π
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%159"__mapSet*
+ (
+
+%154*
+ (
+announcement*
+ (	
+anuncio≤
+Ø
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%160"__mapSet*
+ (
+
+%154*
+ (
+area*
+ (	
+√°rea 
+«
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%161"__mapSet*
+ (
+
+%154*
+ (
+audience_prize*#
+ (
+premio del p√∫blicoÃ
+…
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%162"__mapSet*
+ (
+
+%154*
+ (
+audience_winner*$
+ (
+ganador del p√∫blicoº
+π
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%163"__mapSet*
+ (
+
+%154*
+ (
+	available*
+ (
+
+disponibleº
+π
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%164"__mapSet*
+ (
+
+%154*
+ (
+
+birthday*
+ (
+cumplea√±os∂
+≥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%165"__mapSet*
+ (
+
+%154*
+ (
+body*
+ (
+	contenido≥
+∞
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%166"__mapSet*
+ (
+
+%154*
+ (
+city*
+ (
+
+ciudad∫
+∑
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%167"__mapSet*
+ (
+
+%154*
+ (	
+company*
+ (
+
+compa√±√≠a¿
+Ω
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%168"__mapSet*
+ (
+
+%154*
+ (
+compilation*
+ (
+compilaci√≥n∏
+µ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%169"__mapSet*
+ (
+
+%154*
+ (	
+concept*
+ (
+
+conceptoæ
+ª
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%170"__mapSet*
+ (
+
+%154*
+ (
+
+conditions*
+ (
+condicionesπ
+∂
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%171"__mapSet*
+ (
+
+%154*
+ (	
+content*
+ (
+	contenido∏
+µ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%172"__mapSet*
+ (
+
+%154*
+ (	
+contest*
+ (
+
+concursoµ
+≤
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%173"__mapSet*
+ (
+
+%154*
+ (	
+country*
+ (	
+pa√≠sµ
+≤
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%174"__mapSet*
+ (
+
+%154*
+ (	
+cover*
+ (	
+portadaº
+π
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%175"__mapSet*
+ (
+
+%154*
+ (
+
+created_at*
+ (
+	creado el∑
+¥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%176"__mapSet*
+ (
+
+%154*
+ (	
+creator*
+ (	
+creador∑
+¥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%177"__mapSet*
+ (
+
+%154*
+ (
+
+currency*
+ (
+
+monedaÀ
+»
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%178"__mapSet*
+ (
+
+%154* 
+ (
+current_password*"
+ (
+contrase√±a actual∏
+µ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%179"__mapSet*
+ (
+
+%154*
+ (
+
+customer*
+ (	
+cliente≤
+Ø
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%180"__mapSet*
+ (
+
+%154*
+ (
+date*
+ (	
+fecha…
+∆
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%181"__mapSet*
+ (
+
+%154*
+ (
+date_of_birth*#
+ (
+fecha de nacimiento¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%182"__mapSet*
+ (
+
+%154*
+ (	
+dates*
+ (
+
+fechas∞
+≠
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%183"__mapSet*
+ (
+
+%154*
+ (
+day*
+ (
+d√≠aø
+º
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%184"__mapSet*
+ (
+
+%154*
+ (
+
+deleted_at*
+ (
+eliminado el¿
+Ω
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%185"__mapSet*
+ (
+
+%154*
+ (
+description*
+ (
+descripci√≥nÀ
+»
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%186"__mapSet*
+ (
+
+%154*
+ (
+display_type*&
+ (
+tipo de visualizaci√≥nπ
+∂
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%187"__mapSet*
+ (
+
+%154*
+ (
+
+district*
+ (
+
+distrito∫
+∑
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%188"__mapSet*
+ (
+
+%154*
+ (
+
+duration*
+ (
+	duraci√≥n¡
+æ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%189"__mapSet*
+ (
+
+%154*
+ (	
+email*#
+ (
+correo electr√≥nico∏
+µ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%190"__mapSet*
+ (
+
+%154*
+ (	
+excerpt*
+ (
+
+extractoµ
+≤
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%191"__mapSet*
+ (
+
+%154*
+ (
+
+filter*
+ (
+
+filtro¿
+Ω
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%192"__mapSet*
+ (
+
+%154*
+ (
+finished_at*
+ (
+terminado elπ
+∂
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%193"__mapSet*
+ (
+
+%154*
+ (
+
+first_name*
+ (
+
+nombre∂
+≥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%194"__mapSet*
+ (
+
+%154*
+ (
+
+gender*
+ (	
+g√©neroø
+º
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%195"__mapSet*
+ (
+
+%154*
+ (
+grand_prize*
+ (
+gran Premio≥
+∞
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%196"__mapSet*
+ (
+
+%154*
+ (	
+group*
+ (	
+grupo±
+Æ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%197"__mapSet*
+ (
+
+%154*
+ (
+hour*
+ (
+hora¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%198"__mapSet*
+ (
+
+%154*
+ (	
+image*
+ (
+
+imagen 
+«
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%199"__mapSet*
+ (
+
+%154*
+ (
+image_desktop*$
+ (
+imagen de escritorio√
+¿
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%200"__mapSet*
+ (
+
+%154*
+ (
+
+image_main* 
+ (
+imagen principal¬
+ø
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%201"__mapSet*
+ (
+
+%154*
+ (
+image_mobile*
+ (
+imagen m√≥vil∏
+µ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%202"__mapSet*
+ (
+
+%154*
+ (
+
+images*
+ (
+	im√°genes“
+œ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%203"__mapSet*
+ (
+
+%154*"
+ (
+is_audience_winner*'
+ (
+es ganador de audienciaæ
+ª
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%204"__mapSet*
+ (
+
+%154*
+ (
+	is_hidden*
+ (
+est√° ocultoƒ
+¡
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%205"__mapSet*
+ (
+
+%154*
+ (
+is_subscribed*
+ (
+est√° suscritoΩ
+∫
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%206"__mapSet*
+ (
+
+%154*
+ (
+
+is_visible*
+ (
+
+es visibleº
+π
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%207"__mapSet*
+ (
+
+%154*
+ (
+	is_winner*
+ (
+
+es ganador∑
+¥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%208"__mapSet*
+ (
+
+%154*
+ (	
+items*
+ (
+	elementos±
+Æ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%209"__mapSet*
+ (
+
+%154*
+ (
+key*
+ (	
+claveª
+∏
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%210"__mapSet*
+ (
+
+%154*
+ (
+	last_name*
+ (
+	apellidos∑
+¥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%211"__mapSet*
+ (
+
+%154*
+ (
+
+lesson*
+ (
+
+lecci√≥nÕ
+ 
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%212"__mapSet*
+ (
+
+%154*
+ (
+line_address_1*&
+ (
+l√≠nea de direcci√≥n 1Õ
+ 
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%213"__mapSet*
+ (
+
+%154*
+ (
+line_address_2*&
+ (
+l√≠nea de direcci√≥n 2¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%214"__mapSet*
+ (
+
+%154*
+ (	
+login*
+ (
+
+acceso∑
+¥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%215"__mapSet*
+ (
+
+%154*
+ (	
+message*
+ (	
+mensaje¬
+ø
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%216"__mapSet*
+ (
+
+%154*
+ (
+middle_name*
+ (
+segundo nombreµ
+≤
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%217"__mapSet*
+ (
+
+%154*
+ (
+
+minute*
+ (
+
+minutoµ
+≤
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%218"__mapSet*
+ (
+
+%154*
+ (
+
+mobile*
+ (
+
+m√≥vil±
+Æ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%219"__mapSet*
+ (
+
+%154*
+ (	
+month*
+ (
+mes≥
+∞
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%220"__mapSet*
+ (
+
+%154*
+ (
+name*
+ (
+
+nombre∆
+√
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%221"__mapSet*
+ (
+
+%154*
+ (
+national_code* 
+ (
+c√≥digo nacional∂
+≥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%222"__mapSet*
+ (
+
+%154*
+ (
+
+number*
+ (	
+n√∫meroº
+π
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%223"__mapSet*
+ (
+
+%154*
+ (
+
+password*
+ (
+contrase√±a›
+⁄
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%224"__mapSet*
+ (
+
+%154*%
+ (
+password_confirmation*/
+ (#!
+confirmaci√≥n de la contrase√±a∑
+¥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%225"__mapSet*
+ (
+
+%154*
+ (	
+phone*
+ (
+	tel√©fono≤
+Ø
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%226"__mapSet*
+ (
+
+%154*
+ (	
+photo*
+ (
+fotoº
+π
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%227"__mapSet*
+ (
+
+%154*
+ (
+	portfolio*
+ (
+
+portafolio¬
+ø
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%228"__mapSet*
+ (
+
+%154*
+ (
+postal_code*
+ (
+c√≥digo postal¿
+Ω
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%229"__mapSet*
+ (
+
+%154*
+ (	
+preview* 
+ (
+vista preliminar¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%230"__mapSet*
+ (
+
+%154*
+ (	
+price*
+ (
+
+precio¬
+ø
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%231"__mapSet*
+ (
+
+%154*
+ (
+
+product_id*
+ (
+ID del productoƒ
+¡
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%232"__mapSet*
+ (
+
+%154*
+ (
+product_uid* 
+ (
+UID del producto∆
+√
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%233"__mapSet*
+ (
+
+%154*
+ (
+product_uuid*!
+ (
+UUID del producto∆
+√
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%234"__mapSet*
+ (
+
+%154*
+ (
+
+promo_code*#
+ (
+c√≥digo promocional∫
+∑
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%235"__mapSet*
+ (
+
+%154*
+ (
+
+province*
+ (
+	provinciaπ
+∂
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%236"__mapSet*
+ (
+
+%154*
+ (
+
+quantity*
+ (
+
+cantidadµ
+≤
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%237"__mapSet*
+ (
+
+%154*
+ (
+
+reason*
+ (
+
+raz√≥nÿ
+’
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%238"__mapSet*
+ (
+
+%154*(
+ (
+recaptcha_response_field*'
+ (
+respuesta del recaptcha∏
+µ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%239"__mapSet*
+ (
+
+%154*
+ (	
+referee*
+ (
+
+√°rbitro∫
+∑
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%240"__mapSet*
+ (
+
+%154*
+ (
+
+referees*
+ (
+	√°rbitros«
+ƒ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%241"__mapSet*
+ (
+
+%154*
+ (
+reject_reason*!
+ (
+motivo de rechazoπ
+∂
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%242"__mapSet*
+ (
+
+%154*
+ (
+
+remember*
+ (
+
+recordar¡
+æ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%243"__mapSet*
+ (
+
+%154*
+ (
+restored_at*
+ (
+restaurado el‘
+—
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%244"__mapSet*
+ (
+
+%154*'
+ (
+result_text_under_image*$
+ (
+texto bajo la imagen∞
+≠
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%245"__mapSet*
+ (
+
+%154*
+ (
+role*
+ (
+rol≤
+Ø
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%246"__mapSet*
+ (
+
+%154*
+ (
+rule*
+ (	
+regla¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%247"__mapSet*
+ (
+
+%154*
+ (	
+rules*
+ (
+
+reglas∂
+≥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%248"__mapSet*
+ (
+
+%154*
+ (
+
+second*
+ (	
+segundo∞
+≠
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%249"__mapSet*
+ (
+
+%154*
+ (
+sex*
+ (
+sexo∑
+¥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%250"__mapSet*
+ (
+
+%154*
+ (
+
+shipment*
+ (
+
+env√≠oæ
+ª
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%251"__mapSet*
+ (
+
+%154*
+ (
+
+short_text*
+ (
+texto corto¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%252"__mapSet*
+ (
+
+%154*
+ (
+size*
+ (	
+tama√±o∫
+∑
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%253"__mapSet*
+ (
+
+%154*
+ (
+
+skills*
+ (
+habilidades±
+Æ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%254"__mapSet*
+ (
+
+%154*
+ (
+slug*
+ (
+slug«
+ƒ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%255"__mapSet*
+ (
+
+%154*
+ (
+specialization* 
+ (
+especializaci√≥nø
+º
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%256"__mapSet*
+ (
+
+%154*
+ (
+
+started_at*
+ (
+comenzado el¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%257"__mapSet*
+ (
+
+%154*
+ (	
+state*
+ (
+
+estadoµ
+≤
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%258"__mapSet*
+ (
+
+%154*
+ (
+
+status*
+ (
+
+estado¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%259"__mapSet*
+ (
+
+%154*
+ (
+
+street*
+ (	
+calle∫
+∑
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%260"__mapSet*
+ (
+
+%154*
+ (	
+student*
+ (
+
+estudiante∂
+≥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%261"__mapSet*
+ (
+
+%154*
+ (	
+subject*
+ (
+
+asunto¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%262"__mapSet*
+ (
+
+%154*
+ (
+tag*
+ (
+
+etiqueta∂
+≥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%263"__mapSet*
+ (
+
+%154*
+ (
+tags*
+ (
+	etiquetas∏
+µ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%264"__mapSet*
+ (
+
+%154*
+ (	
+teacher*
+ (
+
+profesor∑
+¥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%265"__mapSet*
+ (
+
+%154*
+ (	
+terms*
+ (
+	t√©rminosœ
+Ã
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%266"__mapSet*
+ (
+
+%154* 
+ (
+test_description*&
+ (
+descripci√≥n de pruebaƒ
+¡
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%267"__mapSet*
+ (
+
+%154*
+ (
+test_locale* 
+ (
+idioma de prueba¬
+ø
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%268"__mapSet*
+ (
+
+%154*
+ (
+	test_name* 
+ (
+nombre de prueba≤
+Ø
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%269"__mapSet*
+ (
+
+%154*
+ (
+text*
+ (	
+texto±
+Æ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%270"__mapSet*
+ (
+
+%154*
+ (
+time*
+ (
+horaµ
+≤
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%271"__mapSet*
+ (
+
+%154*
+ (	
+title*
+ (	
+t√≠tulo±
+Æ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%272"__mapSet*
+ (
+
+%154*
+ (
+type*
+ (
+tipo¡
+æ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%273"__mapSet*
+ (
+
+%154*
+ (
+
+updated_at*
+ (
+actualizado el¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%274"__mapSet*
+ (
+
+%154*
+ (
+user*
+ (	
+usuario∏
+µ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%275"__mapSet*
+ (
+
+%154*
+ (
+
+username*
+ (	
+usuario≥
+∞
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%276"__mapSet*
+ (
+
+%154*
+ (	
+value*
+ (	
+valor∂
+≥
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%277"__mapSet*
+ (
+
+%154*
+ (
+
+winner*
+ (	
+ganador¥
+±
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%278"__mapSet*
+ (
+
+%154*
+ (
+work*
+ (	
+trabajo±
+Æ
+X
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.phpû  ú(
+%279"__mapSet*
+ (
+
+%154*
+ (
+year*
+ (
+a√±o¥
+±
+W
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+%280"__mapSet*
+ (
+
+%1*
+ (
+
+attributes*
+ (
+
+%154"_
+U
+LC:\Users\javie\Desktop\Laravel\doctor-appointment-app\lang\es\validation.php ù(
+
+%1B HP

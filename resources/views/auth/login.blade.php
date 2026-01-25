@@ -39,6 +39,12 @@
                     </a>
                 @endif
 
+                @if (Route::has('register'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ml-5 mr-1" href="{{ route('register') }}">
+                        {{ __("Register") }}
+                    </a>
+                @endif
+
                 <x-button class="ms-4" type="submit">
                     {{ __('Log in') }}
                 </x-button>

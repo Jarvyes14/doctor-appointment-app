@@ -1,0 +1,62 @@
+
+btests\feature\registrationtest::test_registration_screen_cannot_be_rendered_if_support_is_disabledb
+XC:\Users\javie\Desktop\Laravel\doctor-appointment-app\tests\Feature\RegistrationTest.php (V"1*»
+2 (G¦£
+ (F
+%3*>
+
+__unknown_file (" 
+tests\feature\registrationtest*@
+
+__unknown_file ($"
+ Registration support is enabled.2marktestskipped*
+3*Í
+3 (,ƒ€
+ (+
+%4*>
+
+__unknown_file (" 
+tests\feature\registrationtest*)
+
+__unknown_file (
+	/register2getC
+A
+ (+
+	$response"__id*"
+
+__unknown_file (
+
+%4nl
+! !($
+%5*)
+
+__unknown_file (
+
+	$response*!
+
+__unknown_file (2”2assertstatus*
+4*<
+4
+RegistrationTest.php"
+" "(
+implicit return*¢
+1 (7t
+r
+ (6
+%1"&laravel\fortify\features::registration*8
+
+__unknown_file ("
+laravel\fortify\features”
+‘
+ (7
+%2"!laravel\fortify\features::enabled*8
+
+__unknown_file ("
+laravel\fortify\features*"
+
+__unknown_file (
+
+%1*
+2
+3B" 
+tests\feature\registrationtestH

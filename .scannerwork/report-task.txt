@@ -1,0 +1,7 @@
+organization=jarvyes14
+projectKey=Jarvyes14_doctor-appointment-app
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.78759
+dashboardUrl=https://sonarcloud.io/dashboard?id=Jarvyes14_doctor-appointment-app
+ceTaskId=AZvirg97G4KmABGf4u_2
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZvirg97G4KmABGf4u_2
