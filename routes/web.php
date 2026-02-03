@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PatientsController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,9 @@ Route::middleware([
 
     Route::delete('/admin/users', [UserController::class, 'destroy'])
         ->name('admin.users.destroy');
+
+    Route::get('/admin/patients/index', [PatientsController::class, 'index'])
+        ->name('admin.patients.index');
 
     Route::get('/dashboard', function () {
         return view('dashboard');

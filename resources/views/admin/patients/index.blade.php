@@ -1,10 +1,10 @@
-<x-admin-layout title="Usuarios | Simify" :breadcrumbs="[
+<x-admin-layout title="Pacientes | Simify" :breadcrumbs="[
 [
     'name' => 'Dashboard',
     'href' => route('admin.dashboard')
 ],
 [
-    'name' => 'Usuarios'
+    'name' => 'Pacientes'
 ]
 ]"
 >
@@ -15,7 +15,7 @@
         </x-wire-button>
     </x-slot>
 
-    @livewire('admin.data-tables.user-table', ['showBloodType' => false])
+    @livewire('admin.data-tables.user-table', ['roleFilter' => 'Paciente', 'showBloodType' => true])
 
     @stack('js')
 

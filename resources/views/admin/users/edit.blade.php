@@ -52,6 +52,28 @@
                     value="{{ old('phone', $user->phone) }}"
                 />
 
+                {{-- Tipo de Sangre --}}
+                <div>
+                    <label for="blood_type_id" class="block text-sm font-medium text-gray-700 mb-2">
+                        Tipo de Sangre
+                    </label>
+                    <select
+                        name="blood_type_id"
+                        id="blood_type_id"
+                        class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    >
+                        <option value="">Seleccionar tipo</option>
+                        @foreach($bloodTypes as $type)
+                            <option value="{{ $type->id }}" {{ old('blood_type_id', $user->blood_type_id) == $type->id ? 'selected' : '' }}>
+                                {{ $type->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('blood_type_id')
+                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 {{-- Dirección --}}
                 <div class="md:col-span-2">
                     <x-wire-input

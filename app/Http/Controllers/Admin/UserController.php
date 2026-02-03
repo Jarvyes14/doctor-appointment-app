@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BloodType;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -54,11 +55,19 @@ class UserController extends Controller
     public function edit(User $usuario)
     {
         $roles = Role::all();
-        return view('admin.users.edit', ['user' => $usuario]);
+        $bloodTypes = BloodType::all();
+
+        // Debes incluir 'roles' y 'bloodTypes' en el array
+        return view('admin.users.edit', [
+            'user' => $usuario,
+            'roles' => $roles,
+            'bloodTypes' => $bloodTypes
+        ]);
     }
 
     public function update(Request $request, User $usuario)
     {
+
         $validated = $request->validate([
             'name'     => 'required|string|max:255',
             'email'    => ['required', 'email', Rule::unique('users', 'email')->ignore($usuario->id)],
@@ -67,6 +76,7 @@ class UserController extends Controller
             'phone'    => 'nullable|string|max:20',
             'address'  => 'nullable|string|max:255',
             'role'     => 'required|string|in:Administrador,Doctor,Recepcionista,Paciente',
+            'blood_type_id' => 'nullable|exists:blood_types,id',
         ]);
 
         // Evitar quitarse el rol de administrador a uno mismo

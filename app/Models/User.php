@@ -35,6 +35,7 @@ class User extends Authenticatable
         'id_number',
         'phone',
         'address',
+        'blood_type_id'
     ];
 
     /**
@@ -70,6 +71,11 @@ class User extends Authenticatable
                 $user->assignRole('Paciente');
             }
         });
+    }
+
+    public function bloodType()
+    {
+        return $this->belongsTo(BloodType::class);
     }
 
     /**
