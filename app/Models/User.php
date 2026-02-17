@@ -78,6 +78,21 @@ class User extends Authenticatable
         return $this->belongsTo(BloodType::class);
     }
 
+    public function patient()
+    {
+        return $this->hasOne(Patient::class);
+    }
+
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::class);
+    }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class, 'patient_id');
+    }
+
     /**
      * Get the attributes that should be cast.
      *

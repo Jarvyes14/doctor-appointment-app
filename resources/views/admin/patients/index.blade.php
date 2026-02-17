@@ -9,13 +9,13 @@
 ]"
 >
     <x-slot name="action">
-        <x-wire-button blue href="{{route('admin.users.create')}}" class="flex items-center gap-1">
+        <x-wire-button blue href="{{route('admin.patients.create')}}" class="flex items-center gap-1">
             <i class="fa-solid fa-plus"></i>
             <span>Nuevo</span>
         </x-wire-button>
     </x-slot>
 
-    @livewire('admin.data-tables.user-table', ['roleFilter' => 'Paciente', 'showBloodType' => true])
+    @livewire('admin.data-tables.patient-table')
 
     @stack('js')
 
@@ -32,7 +32,7 @@
                     const formData = new FormData(this);
 
                     fetch(url, {
-                        method: 'POST',
+                        method: 'DELETE',
                         body: formData,
                         headers: {
                             'X-Requested-With': 'XMLHttpRequest',

@@ -16,10 +16,10 @@
             'active' => request()->routeIs('admin.roles.*'),
         ],
         [
-            'name' => 'Usuarios',
             'icon' => 'fa-solid fa-users',
+            'name' => 'Usuarios',
             'href' => route('admin.usuarios.index'),
-            'active' => request()->routeIs('admin.users.*'),
+            'active' => request()->routeIs('admin.usuarios.*'),
         ],
         [
             'name' => 'Pacientes',

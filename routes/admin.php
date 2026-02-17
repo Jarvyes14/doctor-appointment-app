@@ -12,4 +12,12 @@ Route::get('/', function (){
 Route::resource('roles', RoleController::class);
 
 //Gestion de usuarios
-Route::resource('usuarios', UserController::class);
+Route::resource('usuarios', UserController::class)->names([
+    'index' => 'usuarios.index',
+    'create' => 'usuarios.create',
+    'store' => 'usuarios.store',
+    'show' => 'usuarios.show',
+    'edit' => 'usuarios.edit',
+    'update' => 'usuarios.update',
+    'destroy' => 'usuarios.destroy',
+]);

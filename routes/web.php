@@ -3,40 +3,63 @@
 use App\Http\Controllers\Admin\PatientsController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DoctorController;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', '/admin');
+// Ruta raíz: redirige a login si no está autenticado, a /dashboard si lo está
+Route::get('/', function () {
+    return auth()->check() ? redirect('/dashboard') : redirect('/login');
+})->name('home');
 
+// Rutas públicas (sin autenticación requerida)
+Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
+Route::get('/doctors/{doctor}', [DoctorController::class, 'show'])->name('doctors.show');
+
+// Rutas protegidas (requieren autenticación)
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    // Profile
     Route::get('/user/profile', [\Laravel\Jetstream\Http\Controllers\Livewire\UserProfileController::class, 'show'])
         ->name('profile.show');
 
-    Route::post('/admin/roles', [RoleController::class, 'store'])
-        ->name('admin.roles.store');
-
-    Route::get('/admin/roles/create', [RoleController::class, 'create'])
-        ->name('admin.roles.create');
-
-    Route::post('/admin/users', [UserController::class, 'store'])
-        ->name('admin.users.store');
-
-    Route::get('/admin/users/index', [UserController::class, 'index'])
-        ->name('admin.users.index');
-
-    Route::get('/admin/users/create', [UserController::class, 'create'])
-        ->name('admin.users.create');
-
-    Route::delete('/admin/users', [UserController::class, 'destroy'])
-        ->name('admin.users.destroy');
-
-    Route::get('/admin/patients/index', [PatientsController::class, 'index'])
-        ->name('admin.patients.index');
-
+    // Dashboard - Redirige a /admin/dashboard
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return redirect('/admin/dashboard');
     })->name('dashboard');
+
+    // Appointments Routes
+    Route::resource('appointments', AppointmentController::class);
+    Route::patch('/appointments/{appointment}/status', [AppointmentController::class, 'updateStatus'])
+        ->name('appointments.updateStatus');
+
+    // Doctors Edit Routes (solo para doctores autenticados)
+    Route::middleware('auth')->group(function () {
+        Route::get('/doctors/{doctor}/edit', [DoctorController::class, 'edit'])->name('doctors.edit');
+        Route::patch('/doctors/{doctor}', [DoctorController::class, 'update'])->name('doctors.update');
+    });
+
+    // Admin Routes - Protected by admin middleware
+    Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+        // Dashboard Admin
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
+
+        // Roles
+        Route::resource('roles', RoleController::class);
+
+        // Users
+        Route::resource('usuarios', UserController::class);
+
+        // Patients
+        Route::resource('patients', PatientsController::class);
+    });
 });
+
+
+
+

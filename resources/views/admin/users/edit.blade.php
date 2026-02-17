@@ -5,14 +5,14 @@
     ],
     [
         'name' => 'Usuarios',
-        'href' => route('admin.usuarios.index'),
+        'href' => route('admin.users.index'),
     ],
     [
         'name' => 'Editar',
     ],
 ]">
     <x-wire-card>
-        <form action="{{ route('admin.usuarios.update', $user) }}" method="POST">
+        <form action="{{ route('admin.users.update', $user) }}" method="POST">
             @csrf
             @method('PUT')
 

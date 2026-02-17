@@ -46,10 +46,10 @@
             const formData = new FormData(form);
 
             fetch(url, {
-                method: 'POST',
+                method: 'DELETE',
                 body: formData,
                 headers: {
-                    'X-Requested-With': 'XMLHttpRequest', // Esto hace que request()->ajax() sea true
+                    'X-Requested-With': 'XMLHttpRequest',
                     'Accept': 'application/json',
                     'X-CSRF-TOKEN': "{{ csrf_token() }}"
                 }
