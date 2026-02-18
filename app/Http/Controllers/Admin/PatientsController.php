@@ -8,6 +8,7 @@ use App\Models\Patient;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -125,12 +126,21 @@ class PatientsController extends Controller
     {
         $user = $patient->user;
 
+        // Sanitizar teléfono de emergencia antes de validar
+        $input = $request->all();
+        if (isset($input['emergency_contact_phone'])) {
+            $input['emergency_contact_phone'] = preg_replace('/[^0-9]/', '', $input['emergency_contact_phone']);
+        }
+        if (isset($input['phone'])) {
+            $input['phone'] = preg_replace('/[^0-9]/', '', $input['phone']);
+        }
+
         try {
-            $validated = $request->validate([
+            $validated = Validator::make($input, [
                 'name' => 'required|string|max:255',
                 'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($user->id)],
                 'id_number' => ['nullable', 'string', 'max:20', Rule::unique('users', 'id_number')->ignore($user->id)],
-                'phone' => 'nullable|string|max:20',
+                'phone' => 'nullable|string|digits:10',
                 'address' => 'nullable|string|max:255',
                 'blood_type_id' => 'nullable|exists:blood_types,id',
                 'medical_history' => 'nullable|string',
@@ -150,10 +160,9 @@ class PatientsController extends Controller
                 // Contacto de Emergencia
                 'emergency_contact_name' => 'nullable|string|max:255',
                 'emergency_contact_relationship' => 'nullable|string|max:255',
-                'emergency_contact_phone' => 'nullable|string|max:20',
-            ]);
+                'emergency_contact_phone' => 'nullable|string|digits:10',
+            ])->validate();
         } catch (\Illuminate\Validation\ValidationException $e) {
-            // Redirigir de vuelta con los errores
             return redirect()->back()
                 ->withErrors($e->validator)
                 ->withInput();
@@ -199,25 +208,25 @@ class PatientsController extends Controller
 
     public function destroy(Patient $patient)
     {
-        \Log::info('=== INICIO ELIMINACION PACIENTE ===', ['patient_id' => $patient->id, 'user_id' => $patient->user_id]);
+        Log::info('=== INICIO ELIMINACION PACIENTE ===', ['patient_id' => $patient->id, 'user_id' => $patient->user_id]);
 
         $user = $patient->user;
 
-        \DB::beginTransaction();
+        DB::beginTransaction();
 
         try {
-            \Log::info('Iniciando transacción de eliminación de paciente', ['patient_id' => $patient->id]);
+            Log::info('Iniciando transacción de eliminación de paciente', ['patient_id' => $patient->id]);
 
             // 1. Cargar relaciones necesarias
             $patient->load('user');
 
             // 2. Eliminar citas asociadas al paciente
             $appointmentsCount = $user->appointments()->count();
-            \Log::info('Eliminando citas del paciente', ['count' => $appointmentsCount, 'user_id' => $user->id]);
+            Log::info('Eliminando citas del paciente', ['count' => $appointmentsCount, 'user_id' => $user->id]);
             $user->appointments()->delete();
 
             // 3. Eliminar el paciente usando el modelo
-            \Log::info('Eliminando registro de paciente', ['patient_id' => $patient->id]);
+            Log::info('Eliminando registro de paciente', ['patient_id' => $patient->id]);
             $patientDeleted = $patient->delete();
 
             if (!$patientDeleted) {
@@ -225,21 +234,21 @@ class PatientsController extends Controller
             }
 
             // 4. Eliminar roles asociados
-            \Log::info('Eliminando roles del usuario', ['user_id' => $user->id]);
+            Log::info('Eliminando roles del usuario', ['user_id' => $user->id]);
             $user->roles()->detach();
 
             // 5. Finalmente eliminar el usuario usando el modelo
-            \Log::info('Eliminando usuario de tabla users', ['user_id' => $user->id]);
+            Log::info('Eliminando usuario de tabla users', ['user_id' => $user->id]);
             $userDeleted = $user->delete();
 
             if (!$userDeleted) {
                 throw new \Exception('No se pudo eliminar el usuario del modelo');
             }
 
-            \Log::info('Paciente y usuario eliminados exitosamente', ['patient_id' => $patient->id, 'user_id' => $user->id]);
+            Log::info('Paciente y usuario eliminados exitosamente', ['patient_id' => $patient->id, 'user_id' => $user->id]);
 
             // Confirmar transacción
-            \DB::commit();
+            DB::commit();
 
             $mensaje = 'Paciente eliminado correctamente.';
             if (request()->ajax()) {
@@ -256,9 +265,9 @@ class PatientsController extends Controller
 
         } catch (\Exception $e) {
             // Revertir transacción si hay error
-            \DB::rollBack();
+            DB::rollBack();
 
-            \Log::error('ERROR AL ELIMINAR PACIENTE', [
+            Log::error('ERROR AL ELIMINAR PACIENTE', [
                 'patient_id' => $patient->id,
                 'user_id' => $patient->user_id,
                 'error' => $e->getMessage(),

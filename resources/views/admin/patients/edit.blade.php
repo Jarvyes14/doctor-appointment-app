@@ -57,12 +57,11 @@
 
                     <!-- Tab 1: Datos de Usuario -->
                     <x-tab-content tab="usuario">
-                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <x-wire-card class="mb-8">
                             <h2 class="text-lg font-semibold text-blue-900 mb-4">
                                 <i class="fas fa-user me-2"></i>Datos de Cuenta de Usuario
                             </h2>
                             <p class="text-sm text-blue-800 mb-4">Información para la sesión en la aplicación</p>
-
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nombre Completo *</label>
@@ -110,13 +109,7 @@
 
                                 <div>
                                     <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        id="phone"
-                                        value="{{ old('phone', $patient->user->phone) }}"
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 @error('phone') border-red-500 @enderror"
-                                    />
+                                    <x-wire-input name="phone" id="phone" type="tel" :value="old('phone', $patient->user->phone)" mask="(###) ###-####" class="w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
                                     @error('phone')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                     @enderror
@@ -136,12 +129,12 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
+                        </x-wire-card>
                     </x-tab-content>
 
                     <!-- Tab 2: Datos Personales -->
                     <x-tab-content tab="personales">
-                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                        <x-wire-card class="mb-8">
                             <h2 class="text-lg font-semibold text-green-900 mb-4">
                                 <i class="fas fa-id-card me-2"></i>Datos Personales
                             </h2>
@@ -228,12 +221,12 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
+                        </x-wire-card>
                     </x-tab-content>
 
                     <!-- Tab 3: Antecedentes Médicos -->
                     <x-tab-content tab="medicos">
-                        <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                        <x-wire-card class="mb-8">
                             <h2 class="text-lg font-semibold text-purple-900 mb-4">
                                 <i class="fas fa-history me-2"></i>Antecedentes Médicos
                             </h2>
@@ -293,12 +286,12 @@
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
-                        </div>
+                        </x-wire-card>
                     </x-tab-content>
 
                     <!-- Tab 4: Información General de Salud -->
                     <x-tab-content tab="salud">
-                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                        <x-wire-card class="mb-8">
                             <h2 class="text-lg font-semibold text-yellow-900 mb-4">
                                 <i class="fas fa-heart me-2"></i>Información General de Salud
                             </h2>
@@ -346,12 +339,12 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </x-wire-card>
                     </x-tab-content>
 
                     <!-- Tab 5: Contacto de Emergencia -->
                     <x-tab-content tab="emergencia">
-                        <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                        <x-wire-card class="mb-8">
                             <h2 class="text-lg font-semibold text-red-900 mb-4">
                                 <i class="fas fa-phone-square me-2"></i>Contacto de Emergencia
                             </h2>
@@ -389,20 +382,13 @@
 
                                 <div>
                                     <label for="emergency_contact_phone" class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
-                                    <input
-                                        type="tel"
-                                        name="emergency_contact_phone"
-                                        id="emergency_contact_phone"
-                                        value="{{ old('emergency_contact_phone', $patient->emergency_contact_phone) }}"
-                                        placeholder="+1 (555) 123-4567"
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 @error('emergency_contact_phone') border-red-500 @enderror"
-                                    />
+                                    <x-wire-input name="emergency_contact_phone" id="emergency_contact_phone" type="tel" :value="old('emergency_contact_phone', $patient->emergency_contact_phone)" mask="(###) ###-####" placeholder="(555) 123-4567" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 @error('emergency_contact_phone') border-red-500 @enderror" />
                                     @error('emergency_contact_phone')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                     @enderror
                                 </div>
                             </div>
-                        </div>
+                        </x-wire-card>
                     </x-tab-content>
                 </x-tabs>
 
