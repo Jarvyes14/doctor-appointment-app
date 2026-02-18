@@ -27,7 +27,7 @@ class UserSelfDeleteTest extends TestCase
 
         $this->actingAs($user, 'web');
 
-        $response = $this->delete(route('admin.users.destroy', $user));
+        $response = $this->delete(route('admin.usuarios.destroy', $user));
 
         $response->assertStatus(403);
 

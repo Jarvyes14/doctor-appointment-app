@@ -3,30 +3,25 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Role;
+use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return view('admin.roles.index');
+        $roles = Role::paginate(15);
+        return view('admin.roles.index', compact('roles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.roles.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate(['name' => 'required|unique:roles,name']);
@@ -35,182 +30,132 @@ class RoleController extends Controller
             'name' => $request->name,
             'guard_name' => 'web'
         ]);
-        session()->flash('swal',
-            [
-                'icon'=>'success',
-                'title'=> 'Rol creado correctamente',
-                'text' => 'El rol ha sido creado exitosamente'
 
+        session()->flash('swal', [
+            'icon' => 'success',
+            'title' => 'Rol creado correctamente',
+            'text' => 'El rol ha sido creado exitosamente'
+        ]);
+
+        return redirect()->route('admin.roles.index');
+    }
+
+    public function show(Role $role)
+    {
+        return view('admin.roles.show', compact('role'));
+    }
+
+    public function edit(Role $role)
+    {
+        // Los 4 primeros roles son protegidos
+        if ($role->id <= 4) {
+            session()->flash('swal', [
+                'icon' => 'error',
+                'title' => 'Error',
+                'text' => 'No puedes editar este rol'
             ]);
 
-        return redirect()->route('admin.roles.index')->with('success', 'Role created successfully');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        if ($id <= 4){
-            session()->flash('swal',
-                [
-                    'icon'=>'error',
-                    'title'=> 'Error',
-                    'text' => 'No puedes editar este rol'
-
-                ]);
-
-            return redirect()->route('admin.roles.index')->with('error', 'Access Denied.');
-
-        }else{
-            try {
-                $role = Role::findOrFail($id);
-
-                return view('admin.roles.edit', [
-                    'role' => $role,
-                ]);
-
-            } catch (ModelNotFoundException $e) {
-
-                return redirect()->route('admin.roles.index')->with('error', [
-                    'icon' => 'error',
-                    'title' => 'Rol no encontrado',
-                    'text' => 'El rol que intentas editar no existe.'
-                ]);
-            }
+            return redirect()->route('admin.roles.index');
         }
+
+        return view('admin.roles.edit', compact('role'));
     }
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request, Role $role)
     {
+        // Los 4 primeros roles son protegidos
+        if ($role->id <= 4) {
+            session()->flash('swal', [
+                'icon' => 'error',
+                'title' => 'Error',
+                'text' => 'No puedes editar este rol'
+            ]);
+
+            return redirect()->route('admin.roles.index');
+        }
+
         $request->validate([
-            'name' => 'required|string|max:255|unique:roles,name,' . $id,
+            'name' => 'required|string|max:255|unique:roles,name,' . $role->id,
         ]);
 
         try {
-            $role = Role::findOrFail($id);
-
-            if ($role -> name === $request -> name){
-
-                session()->flash('swal',
-                    [
-                        'icon'=>'question',
-                        'title'=> 'Sin cambios',
-                        'text' => 'Ningun cambio fue realizado'
-
-                    ]);
-
-                return redirect()->route('admin.roles.index')->with('success', 'Role edited successfully.');
-
-            }else{
-                $role->update($request->only('name'));
-
-                session()->flash('swal',
-                    [
-                        'icon'=>'success',
-                        'title'=> 'Rol editado correctamente',
-                        'text' => 'El rol ha sido editado exitosamente'
-
-                    ]);
-
-                return redirect()->route('admin.roles.index')->with('success', 'Role edited successfully.');
-            }
-
-        } catch (Exception $e) {
-
-            Log::error("Error al actualizar el rol ID: {$id}. Mensaje: " . $e->getMessage());
-
-            session()->flash('swal',
-                [
-                    'icon'=>'error',
-                    'title' => 'Error al editar el Rol',
-                    'text' => 'No se pudo editar el rol. Por favor, inténta de nuevo.'
-
+            if ($role->name === $request->name) {
+                session()->flash('swal', [
+                    'icon' => 'question',
+                    'title' => 'Sin cambios',
+                    'text' => 'Ningún cambio fue realizado'
                 ]);
 
-            return redirect()->back()->with('error', 'Hubo un error al intentar actualizar el rol. Por favor, inténtalo de nuevo.');
+                return redirect()->route('admin.roles.index');
+            }
+
+            $role->update($request->only('name'));
+
+            session()->flash('swal', [
+                'icon' => 'success',
+                'title' => 'Rol editado correctamente',
+                'text' => 'El rol ha sido editado exitosamente'
+            ]);
+
+            return redirect()->route('admin.roles.index');
+
+        } catch (Exception $e) {
+            Log::error("Error al actualizar el rol ID: {$role->id}. Mensaje: " . $e->getMessage());
+
+            session()->flash('swal', [
+                'icon' => 'error',
+                'title' => 'Error al editar el Rol',
+                'text' => 'No se pudo editar el rol. Por favor, inténta de nuevo.'
+            ]);
+
+            return redirect()->back();
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Role $role)
     {
-        if ($id <= 4){
-            session()->flash('swal',
-                [
-                    'icon'=>'error',
-                    'title'=> 'Error',
-                    'text' => 'No puedes editar este rol'
+        // Los 4 primeros roles son protegidos
+        if ($role->id <= 4) {
+            session()->flash('swal', [
+                'icon' => 'error',
+                'title' => 'Error',
+                'text' => 'No puedes eliminar este rol'
+            ]);
 
+            return redirect()->route('admin.roles.index');
+        }
+
+        try {
+            // Verificar si hay usuarios con este rol
+            if ($role->users()->count() > 0) {
+                session()->flash('swal', [
+                    'icon' => 'warning',
+                    'title' => 'Rol en uso',
+                    'text' => 'No se puede eliminar el rol porque tiene usuarios asociados.'
                 ]);
-
-            return redirect()->route('admin.roles.index')->with('error', 'Access Denied.');
-
-        }else{
-            try {
-                $role = Role::findOrFail($id);
-
-                if ($role->users()->count() > 0) {
-                    session()->flash('swal', [
-                        'icon'  => 'warning',
-                        'title' => 'Rol en uso',
-                        'text'  => 'No se puede eliminar el rol porque tiene usuarios asociados. Reasigna a los usuarios primero.',
-                    ]);
-                    return redirect()->route('admin.roles.index');
-                }
-
-                $role->delete();
-
-                session()->flash('swal',
-                    [
-                        'icon'=>'success',
-                        'title'=> 'Rol eliminado correctamente',
-                        'text' => 'El rol ha sido eliminado exitosamente'
-
-                    ]);
-
-                return redirect()->route('admin.roles.index')->with('success', 'Role eliminated successfully.');
-
-            } catch (ModelNotFoundException $e) {
-
-                session()->flash('swal',
-                    [
-                        'icon'=>'error',
-                        'title' => 'Error al encontrar el Rol',
-                        'text' => 'No se pudo encontrar el rol. Por favor, verifica e inténta de nuevo.'
-
-                    ]);
-
-                return redirect()->back()->with('error', 'Hubo un error al encontrar el rol. Por favor, verifica e inténtalo de nuevo.');
-
-
-            } catch (Exception $e) {
-                Log::error("Error al eliminar el rol ID: {$id}. Mensaje: " . $e->getMessage());
-
-                session()->flash('swal',
-                    [
-                        'icon'=>'error',
-                        'title' => 'Error al eliminar el Rol',
-                        'text' => 'No se pudo eliminar el rol. Por favor, inténta de nuevo.'
-
-                    ]);
-
-                return redirect()->back()->with('error', 'Hubo un error al eliminar actualizar el rol. Por favor, inténtalo de nuevo.');
-
-
+                return redirect()->route('admin.roles.index');
             }
+
+            $role->delete();
+
+            session()->flash('swal', [
+                'icon' => 'success',
+                'title' => 'Rol eliminado correctamente',
+                'text' => 'El rol ha sido eliminado exitosamente'
+            ]);
+
+            return redirect()->route('admin.roles.index');
+
+        } catch (Exception $e) {
+            Log::error("Error al eliminar el rol ID: {$role->id}. Mensaje: " . $e->getMessage());
+
+            session()->flash('swal', [
+                'icon' => 'error',
+                'title' => 'Error al eliminar el Rol',
+                'text' => 'No se pudo eliminar el rol. Por favor, inténta de nuevo.'
+            ]);
+
+            return redirect()->back();
         }
     }
 }

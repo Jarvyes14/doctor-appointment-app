@@ -24,7 +24,7 @@ class UserManagementTest extends TestCase
 
         // 2. Acción
         $response = $this->actingAs($attacker)
-            ->delete(route('admin.users.destroy', $targetAdmin));
+            ->delete(route('admin.usuarios.destroy', $targetAdmin));
 
         // 3. Verificación de redirección
         $response->assertStatus(302);
@@ -69,7 +69,7 @@ class UserManagementTest extends TestCase
 
         // Act: Intenta cambiarse el rol a Paciente
         $response = $this->actingAs($admin)
-            ->put(route('admin.users.update', $admin), [
+            ->put(route('admin.usuarios.update', $admin), [
                 'name' => 'Admin Test',
                 'email' => $admin->email,
                 'role' => 'Paciente', // Cambio a rol inferior
