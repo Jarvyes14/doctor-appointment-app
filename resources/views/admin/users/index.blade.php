@@ -15,7 +15,7 @@
         </x-wire-button>
     </x-slot>
 
-    @livewire('admin.data-tables.user-table', ['showBloodType' => false])
+    @livewire('admin.user-table', ['showBloodType' => false])
 
     @stack('js')
 
@@ -32,7 +32,7 @@
                     const formData = new FormData(this);
 
                     fetch(url, {
-                        method: 'POST',
+                        method: 'DELETE',
                         body: formData,
                         headers: {
                             'X-Requested-With': 'XMLHttpRequest',

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PatientsController;
 
 Route::get('/', function (){
     return view('admin.dashboard');
@@ -12,4 +12,7 @@ Route::get('/', function (){
 Route::resource('roles', RoleController::class);
 
 //Gestion de usuarios
-Route::resource('usuarios', UserController::class);
+Route::resource('users', UserController::class);
+
+//Gestion de pacientes
+Route::resource('patients', PatientsController::class);

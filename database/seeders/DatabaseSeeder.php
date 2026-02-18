@@ -15,18 +15,20 @@ class DatabaseSeeder extends Seeder
     {
         // Llamar a RoleSeeder
         $this->call([
-           RoleSeeder::class,
-            UserSeeder::class,
+            RoleSeeder::class,
             BloodTypeSeeder::class,
+            UserSeeder::class,
+            DoctorSeeder::class,
+            PatientSeeder::class,
         ]);
 
         User::factory()->create([
             'name' => 'Javier Barceló',
             'email' => 'javierbarcelosantos@example.com',
             'password' => Hash::make('12345678'),
-            'id_number' => '123456789', // NUEVO
-            'phone' => '+1234567890',   // NUEVO
-            'address' => 'Dirección de prueba', // NUEVO
+            'id_number' => '123456789',
+            'phone' => '+1234567890',
+            'address' => 'Dirección de prueba',
         ]);
     }
 }

@@ -1,10 +1,10 @@
 <div class="flex items-center space-x-2">
-    <x-wire-button href="{{ route('admin.users.edit', $user) }}" blue xs>
+    <x-wire-button href="{{ route('admin.patients.edit', $patient->id) }}" blue xs>
         <i class="fa-solid fa-pen-to-square"></i>
     </x-wire-button>
 
-    @if($user->id !== 0)
-            <form action="{{ route('admin.users.destroy', $user) }}" method="POST" class="delete-form">
+    @if($patient->id !== 0)
+        <form action="{{ route('admin.patients.destroy', $patient->id) }}" method="POST" class="delete-form">
             @csrf
             @method('DELETE')
             {{-- Agregamos una clase 'btn-delete' para el script --}}
@@ -70,3 +70,4 @@
         }
     </script>
 @endpush
+

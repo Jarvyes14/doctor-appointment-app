@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire\Admin\DataTables;
+namespace App\Livewire\Admin;
 
-use App\Models\User;
+use App\Models\Patient;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -18,12 +18,9 @@ class PatientTable extends DataTableComponent
 
     public function builder(): Builder
     {
-        // Iniciamos la consulta sobre el modelo User
-        return User::query()
-            // Filtramos para obtener solo los que tienen rol 'patient'
-            // Asegúrate de que el string coincida con el nombre de tu rol en la BD
-            ->role('patient') 
-            ->with(['bloodType']); // Cargamos la relación de tipo de sangre
+        // Iniciamos la consulta sobre el modelo Patient
+        return Patient::query()
+            ->with(['user', 'bloodType']); // Cargamos las relaciones necesarias
     }
 
     public function columns(): array
@@ -32,11 +29,11 @@ class PatientTable extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable(),
 
-            Column::make("Nombre", "name")
+            Column::make("Nombre", "user.name")
                 ->sortable()
                 ->searchable(),
 
-            Column::make("Email", "email")
+            Column::make("Email", "user.email")
                 ->sortable()
                 ->searchable(),
 
@@ -45,7 +42,7 @@ class PatientTable extends DataTableComponent
                 ->label(fn($row) => $row->bloodType?->name ?? 'N/A')
                 ->sortable(),
 
-            Column::make("Teléfono", "phone")
+            Column::make("Teléfono", "user.phone")
                 ->sortable()
                 ->searchable(),
 
@@ -54,7 +51,8 @@ class PatientTable extends DataTableComponent
                 ->format(fn($value) => $value->format('d/m/Y')),
 
             Column::make("Acciones")
-                ->label(fn($row) => view('admin.users.actions', ['user' => $row])),
+                ->label(fn($row) => view('admin.patients.actions', ['patient' => $row])),
         ];
     }
 }
+

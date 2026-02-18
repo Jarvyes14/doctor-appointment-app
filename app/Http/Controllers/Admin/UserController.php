@@ -8,6 +8,8 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
@@ -33,15 +35,21 @@ class UserController extends Controller
             'id_number'=> 'nullable|string|max:20|unique:users,id_number',
             'phone'    => 'nullable|string|max:20',
             'address'  => 'nullable|string|max:255',
-            'role'     => 'required|string|in:Administrador,Doctor,Recepcionista,Paciente',
+            'role'     => 'required|string|exists:roles,name',
         ]);
 
-        $role = $validated['role'];
-        unset($validated['role']);
-        $validated['password'] = Hash::make($validated['password']);
+        $role = Role::where('name', $validated['role'])->firstOrFail();
 
-        $user = User::create($validated);
-        $user->assignRole($role);
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+            'id_number' => $validated['id_number'] ?? null,
+            'phone' => $validated['phone'] ?? null,
+            'address' => $validated['address'] ?? null,
+        ]);
+
+        $user->assignRole($role->name);
 
         session()->flash('swal', [
             'icon'  => 'success',
@@ -52,57 +60,35 @@ class UserController extends Controller
         return redirect()->route('admin.users.index');
     }
 
-    public function edit(User $usuario)
+    public function edit(User $user)
     {
         $roles = Role::all();
         $bloodTypes = BloodType::all();
 
         // Debes incluir 'roles' y 'bloodTypes' en el array
         return view('admin.users.edit', [
-            'user' => $usuario,
+            'user' => $user,
             'roles' => $roles,
             'bloodTypes' => $bloodTypes
         ]);
     }
 
-    public function update(Request $request, User $usuario)
+    public function update(Request $request, User $user)
     {
 
         $validated = $request->validate([
             'name'     => 'required|string|max:255',
-            'email'    => ['required', 'email', Rule::unique('users', 'email')->ignore($usuario->id)],
+            'email'    => ['required', 'email', Rule::unique('users', 'email')->ignore($user->id)],
             'password' => 'nullable|min:6|confirmed',
-            'id_number'=> ['nullable', 'string', 'max:20', Rule::unique('users', 'id_number')->ignore($usuario->id)],
+            'id_number'=> ['nullable', 'string', 'max:20', Rule::unique('users', 'id_number')->ignore($user->id)],
             'phone'    => 'nullable|string|max:20',
             'address'  => 'nullable|string|max:255',
             'role'     => 'required|string|in:Administrador,Doctor,Recepcionista,Paciente',
             'blood_type_id' => 'nullable|exists:blood_types,id',
         ]);
 
-        // Evitar quitarse el rol de administrador a uno mismo
-        if ($usuario->id === auth()->id() && $request->role !== 'Administrador') {
-            session()->flash('swal', [
-                'icon'  => 'warning',
-                'title' => 'Acción no permitida',
-                'text'  => 'No puedes quitarte el rol de Administrador a ti mismo para no perder acceso.',
-            ]);
-            return redirect()->back();
-        }
-
-        // Si se proporciona una contraseña, encriptarla; si no, eliminarla del array
-        if (!empty($validated['password'])) {
-            $validated['password'] = Hash::make($validated['password']);
-        } else {
-            unset($validated['password']);
-        }
-
-        $role = $validated['role'];
-        unset($validated['role']);
-
-        $usuario->update($validated);
-
-        // Sincronizar rol (elimina roles anteriores y asigna el nuevo)
-        $usuario->syncRoles([$role]);
+        $user->update($validated);
+        $user->syncRoles([$validated['role']]);
 
         session()->flash('swal', [
             'icon'  => 'success',
@@ -113,38 +99,104 @@ class UserController extends Controller
         return redirect()->route('admin.users.index');
     }
 
-    public function destroy(User $usuario)
+    public function show(User $user)
     {
-        // 1. Forzar la carga de roles para evitar fallos en la validación
-        $usuario->load('roles');
+        $user->load('roles', 'bloodType');
+        return view('admin.users.show', compact('user'));
+    }
+
+    public function destroy(User $user)
+    {
+        \Log::info('=== INICIO ELIMINACION USUARIO ===', ['user_id' => $user->id, 'user_email' => $user->email]);
+
         $ejecutor = auth()->user();
 
-        // 2. Validación: Administrador Principal (ID 1)
-        if ($usuario->id === 1) {
-            return $this->errorResponse('No se puede eliminar al administrador principal.');
+        // Validaciones previas
+        if ($user->id === 1) {
+            \Log::warning('Intento de eliminar admin principal');
+            if (request()->ajax()) {
+                return response()->json(['message' => 'No se puede eliminar al administrador principal.'], 403);
+            }
+            return redirect()->back()->with('error', 'No se puede eliminar al administrador principal.');
         }
 
-        // 3. Validación: Autosuicidio
-        if ($usuario->id === $ejecutor->id) {
-            return $this->errorResponse('No puedes eliminar tu propia cuenta.');
+        if ($user->id === $ejecutor->id) {
+            \Log::warning('Intento de auto-eliminación');
+            if (request()->ajax()) {
+                return response()->json(['message' => 'No puedes eliminar tu propia cuenta.'], 403);
+            }
+            return redirect()->back()->with('error', 'No puedes eliminar tu propia cuenta.');
         }
 
-        // 4. Validación: Jerarquía (Un no-admin intentando borrar a un Admin)
-        if ($usuario->hasRole('Administrador') && !$ejecutor->hasRole('Administrador')) {
-            return $this->errorResponse('No tienes permisos para eliminar a un administrador.');
+        if ($user->hasRole('Administrador') && !$ejecutor->hasRole('Administrador')) {
+            \Log::warning('Sin permisos para eliminar admin');
+            if (request()->ajax()) {
+                return response()->json(['message' => 'No tienes permisos para eliminar a un administrador.'], 403);
+            }
+            return redirect()->back()->with('error', 'No tienes permisos para eliminar a un administrador.');
         }
 
-        // 5. Intento de eliminación real con manejo de errores de DB
+        // Usar transacción para asegurar que todo se ejecuta o nada
+        \DB::beginTransaction();
+
         try {
-            $usuario->delete();
+            \Log::info('Iniciando transacción de eliminación', ['user_id' => $user->id]);
+
+            // 1. Eliminar citas asociadas
+            $appointmentsCount = $user->appointments()->count();
+            \Log::info('Eliminando citas', ['count' => $appointmentsCount, 'user_id' => $user->id]);
+            $user->appointments()->delete();
+
+            // 2. Eliminar paciente si existe
+            if ($user->patient) {
+                \Log::info('Eliminando paciente', ['user_id' => $user->id]);
+                $user->patient->delete();
+            }
+
+            // 3. Eliminar doctor si existe
+            if ($user->doctor) {
+                \Log::info('Eliminando doctor', ['user_id' => $user->id]);
+                $user->doctor->delete();
+            }
+
+            // 4. Eliminar roles
+            \Log::info('Desasociando roles', ['user_id' => $user->id]);
+            $user->roles()->detach();
+
+            // 5. Finalmente eliminar al usuario usando el modelo
+            \Log::info('Eliminando usuario de tabla users', ['user_id' => $user->id]);
+            $resultado = $user->delete();
+
+            if (!$resultado) {
+                throw new \Exception('No se pudo eliminar el usuario del modelo');
+            }
+
+            \Log::info('Usuario eliminado exitosamente', ['user_id' => $user->id]);
+
+            // Confirmar transacción
+            \DB::commit();
 
             $mensaje = 'Usuario eliminado correctamente.';
-            return request()->ajax()
-                ? response()->json(['message' => $mensaje], 200)
-                : redirect()->back()->with('swal', ['icon' => 'success', 'text' => $mensaje]);
+            if (request()->ajax()) {
+                return response()->json(['message' => $mensaje], 200);
+            }
+            return redirect()->back()->with('success', $mensaje);
 
         } catch (\Exception $e) {
-            return $this->errorResponse('El usuario tiene registros vinculados (citas, historial) y no puede ser eliminado.');
+            // Revertir transacción si hay error
+            \DB::rollBack();
+
+            \Log::error('ERROR AL ELIMINAR USUARIO', [
+                'user_id' => $user->id,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            $errorMsg = 'Error al eliminar el usuario: ' . $e->getMessage();
+            if (request()->ajax()) {
+                return response()->json(['message' => $errorMsg], 403);
+            }
+            return redirect()->back()->with('error', $errorMsg);
         }
     }
 
