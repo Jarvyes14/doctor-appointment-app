@@ -1,27 +1,22 @@
-<x-admin-layout title="Usuarios | Simify" :breadcrumbs="[
-[
-    'name' => 'Dashboard',
-    'href' => route('admin.dashboard')
-],
-[
-    'name' => 'Usuarios'
-]
-]"
->
+<x-admin-layout title="Doctores | Simify" :breadcrumbs="[
+    [
+        'name' => 'Dashboard',
+        'href' => route('admin.dashboard')
+    ],
+    [
+        'name' => 'Doctores'
+    ]
+]">
     <x-slot name="action">
-        <x-wire-button blue href="{{route('admin.users.create')}}" class="flex items-center gap-1">
+        <x-wire-button blue href="{{ route('admin.doctors.create') }}" class="flex items-center gap-1">
             <i class="fa-solid fa-plus"></i>
             <span>Nuevo</span>
         </x-wire-button>
     </x-slot>
 
-    @livewire('admin.user-table', ['showBloodType' => false])
+    @livewire('admin.doctor-table')
 
-    @stack('js')
-
-</x-admin-layout>
-
-@push('js')
+    @push('js')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.delete-form').forEach(form => {
@@ -57,4 +52,6 @@
             });
         });
     </script>
-@endpush
+    @endpush
+</x-admin-layout>
+

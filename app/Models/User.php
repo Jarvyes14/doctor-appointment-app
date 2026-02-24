@@ -87,22 +87,4 @@ class User extends Authenticatable
     {
         return $this->hasOne(Doctor::class);
     }
-
-    public function appointments()
-    {
-        return $this->hasMany(Appointment::class, 'patient_id');
-    }
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
 }

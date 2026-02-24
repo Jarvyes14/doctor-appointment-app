@@ -56,5 +56,8 @@ Route::middleware([
 
         // Patients
         Route::resource('patients', PatientsController::class);
+
+        // Doctors
+        Route::resource('doctors', \App\Http\Controllers\Admin\DoctorController::class);
     });
 });
