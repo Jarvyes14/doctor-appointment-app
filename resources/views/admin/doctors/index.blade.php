@@ -17,41 +17,7 @@
     @livewire('admin.doctor-table')
 
     @push('js')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.delete-form').forEach(form => {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    const url = this.action;
-                    const formData = new FormData(this);
-
-                    fetch(url, {
-                        method: 'DELETE',
-                        body: formData,
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                            'X-CSRF-TOKEN': "{{ csrf_token() }}" // Laravel requiere el token
-                        }
-                    })
-                        .then(async response => {
-                            const data = await response.json();
-
-                            if (response.status === 403) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: '¡Error!',
-                                    text: data.message,
-                                });
-                            } else if (response.ok) {
-                                Swal.fire('¡Eliminado!', data.message, 'success')
-                                    .then(() => location.reload());
-                            }
-                        });
-                });
-            });
-        });
-    </script>
+        {{-- Scripts handled in actions.blade.php --}}
     @endpush
 </x-admin-layout>
 

@@ -37,7 +37,8 @@ class DoctorTable extends DataTableComponent
 
             Column::make("Cédula", "medical_license_number")
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->format(fn($value) => $value ?: 'N/A'),
 
             Column::make("Teléfono", "user.phone")
                 ->sortable()

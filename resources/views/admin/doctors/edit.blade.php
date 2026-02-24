@@ -22,15 +22,20 @@
 
                     {{-- Especialidad --}}
                     <div>
-                        <x-wire-native-select
-                            label="Especialidad"
-                            name="speciality_id"
-                            placeholder="{{ $doctor->speciality->name ?? 'Seleccione una especialidad' }}"
-                            :options="$specialities->reject(fn($s) => $s->id == $doctor->speciality_id)"
-                            option-label="name"
-                            option-value="id"
-                            :value="$doctor->speciality_id"
-                        />
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Especialidad</label>
+                        <div class="relative rounded-md shadow-sm">
+                            <select
+                                name="speciality_id"
+                                class="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            >
+                                <option value="" disabled>Seleccione una especialidad</option>
+                                @foreach($specialities as $speciality)
+                                    <option value="{{ $speciality->id }}" {{ $doctor->speciality_id == $speciality->id ? 'selected' : '' }}>
+                                        {{ $speciality->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
                     {{-- Cédula --}}
