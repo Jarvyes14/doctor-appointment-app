@@ -31,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
         }
 
         // 2. Limpia el cache de Spatie
-        app()['cache']->forget('spatie.permission.cache');
+        if (!$this->app->runningInConsole()) {
+            app()['cache']->forget('spatie.permission.cache');
+        }
     }
 }
