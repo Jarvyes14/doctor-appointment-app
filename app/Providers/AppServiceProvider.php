@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
+use App\Models\Appointment;
+use App\Observers\AppointmentObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +22,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Registro del Observer para las citas (Mensajes de Twilio)
+        Appointment::observe(AppointmentObserver::class);
+
         // 1. Desactiva observers mientras se ejecute el seeder
         if ($this->app->runningInConsole() && ! $this->app->runningUnitTests()) {
             Model::unsetEventDispatcher();
