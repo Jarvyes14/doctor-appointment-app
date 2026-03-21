@@ -7,6 +7,10 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    # Definimos las variables aquí para que afecten a TODOS los pasos del job
+    env:
+      DB_CONNECTION: sqlite
+      DB_DATABASE: ${{ github.workspace }}/database/database.sqlite
 
     steps:
       - uses: actions/checkout@v4
@@ -14,15 +18,21 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2' # O la versión que estés usando
+          php-version: '8.2'
+          extensions: mbstring, xml, ctype, iconv, intl, sqlite3 # Aseguramos sqlite
+
+      - name: Copy .env
+        run: php -r "copy('.env.example', '.env');"
 
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
-      - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Create SQLite database
+        run: |
+          mkdir -p database
+          touch database/database.sqlite
 
-      - name: Generate key
+      - name: Generate Key
         run: php artisan key:generate
 
       - name: Execute tests
