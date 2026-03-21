@@ -59,6 +59,9 @@ class RoleManagementTest extends TestCase
         $admin = User::factory()->create();
         $admin->assignRole('Administrador');
 
+        Role::create(['name' => 'FillerRole1', 'guard_name' => 'web']);
+        Role::create(['name' => 'FillerRole2', 'guard_name' => 'web']);
+        
         // Crear un rol personalizado (no protegido)
         $role = Role::create(['name' => 'CustomRole99', 'guard_name' => 'web']);
 

@@ -87,6 +87,24 @@ class UserController extends Controller
             'blood_type_id' => 'nullable|exists:blood_types,id',
         ]);
 
+        if ($user->id === auth()->id() && $user->hasRole('Administrador') && $validated['role'] !== 'Administrador') {
+            session()->flash('swal', [
+                'icon'  => 'warning',
+                'title' => 'Acci�n denegada',
+                'text'  => 'No puedes quitarte el rol a ti mismo.',
+            ]);
+            return redirect()->back();
+        }
+
+        if ($user->id === auth()->id() && $user->hasRole('Administrador') && $validated['role'] !== 'Administrador') {
+            session()->flash('swal', [
+                'icon'  => 'warning',
+                'title' => 'Acción denegada',
+                'text'  => 'No puedes quitarte el rol',
+            ]);
+            return redirect()->back();
+        }
+
         $user->update($validated);
         $user->syncRoles([$validated['role']]);
 
@@ -208,3 +226,4 @@ class UserController extends Controller
         return redirect()->back()->with('swal', ['icon' => 'error', 'text' => $mensaje]);
     }
 }
+

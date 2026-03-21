@@ -15,9 +15,9 @@ class AppointmentObserver
     public function created(Appointment $appointment): void
     {
         // Cargar las relaciones necesarias para obtener los datos
-        $appointment->load(['patient.user', 'doctor.user']);
+        $appointment->load(['patient', 'doctor.user']);
 
-        $patientUser = $appointment->patient->user;
+        $patientUser = $appointment->patient;
         $doctorUser = $appointment->doctor->user;
 
         $phone = $patientUser->phone;
@@ -114,3 +114,4 @@ class AppointmentObserver
         //
     }
 }
+
