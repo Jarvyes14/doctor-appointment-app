@@ -25,7 +25,10 @@ class AppServiceProvider extends ServiceProvider
             Model::unsetEventDispatcher();
         }
 
-        // 2. Limpia el cache de Spatie
-        app()['cache']->forget('spatie.permission.cache');
+        // 2. Limpia el cache de Spatie 
+        // AGREGAMOS ESTE IF: Solo limpia si NO estamos en la consola (o si prefieres, si no es una instalación limpia)
+        if (!$this->app->runningInConsole()) {
+            app()['cache']->forget('spatie.permission.cache');
+        }
     }
 }
