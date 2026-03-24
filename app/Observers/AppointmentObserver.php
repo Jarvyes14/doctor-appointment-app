@@ -20,6 +20,14 @@ class AppointmentObserver
         $patientUser = $appointment->patient;
         $doctorUser = $appointment->doctor->user;
 
+        // --- ENVIAR CORREOS CON PDF ---
+        try {
+            \Illuminate\Support\Facades\Mail::to($patientUser->email)->send(new \App\Mail\AppointmentCreatedMail($appointment, $patientUser->name));
+            \Illuminate\Support\Facades\Mail::to($doctorUser->email)->send(new \App\Mail\AppointmentCreatedMail($appointment, $doctorUser->name));
+        } catch (\Exception $e) {
+            Log::error('Error sending Appointment emails: ' . $e->getMessage());
+        }
+
         $phone = $patientUser->phone;
 
         if (!$phone) {
@@ -62,8 +70,8 @@ class AppointmentObserver
             // Guardar sin disparar eventos en loop
             $appointment->saveQuietly();
 
-            $dateFormatted = $appointment->date->format('d/m/Y');
-            $timeFormatted = Carbon::parse($appointment->start_time)->format('H:i');
+            $dateFormatted = \Carbon\Carbon::parse($appointment->appointment_date)->format('d/m/Y');
+            $timeFormatted = \Carbon\Carbon::parse($appointment->appointment_date)->format('H:i');
 
             $message = "Hola {$patientUser->name}, tu cita médica con el Dr/a. {$doctorUser->name} ha sido registrada para el {$dateFormatted} a las {$timeFormatted}. \n\n*Por favor, responde a este mismo mensaje con la palabra Confirmar para que tu cita sea aprobada.*";
 
