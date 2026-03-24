@@ -46,10 +46,9 @@ class DoctorController extends Controller
         }
 
         $validated = $request->validate([
-            'specialty' => 'required|string|max:100',
-            'license_number' => 'required|string|max:50|unique:doctors,license_number,' . $doctor->id,
-            'phone' => 'nullable|string|max:20',
-            'address' => 'nullable|string|max:500',
+            'speciality_id' => 'required|exists:specialities,id',
+            'medical_license_number' => 'required|string|max:50|unique:doctors,medical_license_number,' . $doctor->id,
+            'biography' => 'nullable|string|max:1000',
         ]);
 
         $doctor->update($validated);
@@ -58,4 +57,3 @@ class DoctorController extends Controller
             ->with('success', 'Perfil actualizado exitosamente');
     }
 }
-

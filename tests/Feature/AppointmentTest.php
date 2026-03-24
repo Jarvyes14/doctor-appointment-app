@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\User;
+use App\Models\Speciality;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -20,9 +21,11 @@ class AppointmentTest extends TestCase
 
         $doctor = User::factory()->create();
         $doctor->assignRole('Doctor');
+        $doctorModel = $speciality = Speciality::create(['name' => 'Cardiology']);
         $doctorModel = Doctor::create([
             'user_id' => $doctor->id,
             'license_number' => 'LIC-001',
+            'speciality_id' => $speciality->id,
         ]);
 
         $response = $this->actingAs($patient)
@@ -51,9 +54,11 @@ class AppointmentTest extends TestCase
 
         $doctor = User::factory()->create();
         $doctor->assignRole('Doctor');
+        $doctorModel = $speciality = Speciality::create(['name' => 'Cardiology']);
         $doctorModel = Doctor::create([
             'user_id' => $doctor->id,
             'license_number' => 'LIC-001',
+            'speciality_id' => $speciality->id,
         ]);
 
         $appointment = Appointment::create([
@@ -70,4 +75,5 @@ class AppointmentTest extends TestCase
         $response->assertStatus(403);
     }
 }
+
 

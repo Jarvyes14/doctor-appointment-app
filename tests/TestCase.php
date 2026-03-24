@@ -11,6 +11,8 @@ abstract class TestCase extends BaseTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        
+        $this->withoutVite();
 
         // 1. Limpiar la caché de Spatie para evitar conflictos en tests
         $this->app->make(PermissionRegistrar::class)->forgetCachedPermissions();
